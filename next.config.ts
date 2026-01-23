@@ -1,7 +1,20 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "api-blog.ctrlbits.com",
+        pathname: "/media/**",
+      },
+    ],
+    unoptimized: true,
+  },
+
+  experimental: {
+    serverComponentsExternalPackages: ["fs"],
+  },
 };
 
 export default nextConfig;
