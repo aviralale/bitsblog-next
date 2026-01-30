@@ -11,10 +11,6 @@ const nextConfig: NextConfig = {
     ],
     unoptimized: true,
   },
-
-  experimental: {
-    serverComponentsExternalPackages: ["fs"],
-  },
 };
 
 export default nextConfig;

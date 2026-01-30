@@ -40,7 +40,7 @@ import rehypeRaw from "rehype-raw";
 import rehypeSanitize from "rehype-sanitize";
 import AdminRoute from "@/components/AdminRoute";
 
-export const CreatePost = () => {
+export default function EditPostPage() {
   const params = useParams<{ slug: string }>();
   const slugStr = Array.isArray(params?.slug) ? params.slug[0] : params?.slug;
   const router = useRouter();
@@ -836,4 +836,4 @@ export const CreatePost = () => {
       </div>
     </AdminRoute>
   );
-};
+}

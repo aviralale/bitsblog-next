@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
@@ -62,7 +62,7 @@ interface SubscriberStats {
   pending: number;
 }
 
-export const CreateNewsletter = () => {
+function CreateNewsletterContent() {
   const { user } = useAuth();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -770,6 +770,12 @@ export const CreateNewsletter = () => {
       </div>
     </AdminRoute>
   );
-};
+}
 
-export default CreateNewsletter;
+export default function CreateNewsletter() {
+  return (
+    <Suspense>
+      <CreateNewsletterContent />
+    </Suspense>
+  );
+}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { postAPI } from "@/api/services";
@@ -194,7 +194,7 @@ interface PaginatedResponse<T> {
   results: T[];
 }
 
-export default function Dashboard() {
+function DashboardContent() {
   const { user } = useAuth();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -2117,5 +2117,13 @@ export default function Dashboard() {
         </Dialog>
       </div>
     </AdminRoute>
+  );
+}
+
+export default function Dashboard() {
+  return (
+    <Suspense>
+      <DashboardContent />
+    </Suspense>
   );
 }
