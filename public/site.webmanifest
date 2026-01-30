@@ -1,0 +1,27 @@
+{
+  "name": "BitsBlog",
+  "short_name": "BitsBlog",
+  "description": "Explore in-depth articles on web development, AI, software engineering, and technology trends.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["news", "technology", "education"],
+  "lang": "en-US",
+  "dir": "ltr"
+}

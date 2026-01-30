@@ -120,4 +120,27 @@
   body {
     @apply bg-background text-foreground;
   }
+  
+  /* Performance: Reduce layout shift by reserving space for images */
+  img {
+    @apply max-w-full h-auto;
+  }
+  
+  /* Performance: Optimize font rendering */
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  
+  /* Accessibility: Focus visible for keyboard navigation */
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-ring;
+  }
+  
+  /* Performance: Contain paint for better rendering */
+  article,
+  section {
+    contain: layout style paint;
+  }
 }

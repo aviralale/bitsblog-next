@@ -14,6 +14,7 @@ import {
   SkipForward,
   SkipBack,
 } from "lucide-react";
+import DOMPurify from "dompurify";
 import { API_URL } from "@/api/axios";
 
 interface AdData {
@@ -937,7 +938,13 @@ export const AdComponent = ({
 
         <div
           className={borderClasses}
-          dangerouslySetInnerHTML={{ __html: ad.html_content }}
+          dangerouslySetInnerHTML={{ 
+            __html: DOMPurify.sanitize(ad.html_content, {
+              ALLOWED_TAGS: ['b', 'i', 'em', 'strong', 'a', 'p', 'br', 'span', 'div', 'img', 'iframe'],
+              ALLOWED_ATTR: ['href', 'target', 'rel', 'src', 'alt', 'width', 'height', 'class', 'id'],
+              ALLOW_DATA_ATTR: false,
+            })
+          }}
         />
 
         {showCloseButton && (

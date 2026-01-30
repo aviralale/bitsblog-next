@@ -224,13 +224,7 @@ const faqData: FAQItem[] = [
     answer:
       "If you believe content on our site infringes your copyright, please contact us immediately through our contact page with details of the infringement. We take copyright seriously and will investigate all claims promptly.",
   },
-  {
-    id: 28,
-    category: "Content",
-    question: "Do you accept guest posts?",
-    answer:
-      "We occasionally accept high-quality guest posts from experts in relevant fields. Please review our guest posting guidelines and submit your pitch through our contact page. We review all submissions but cannot guarantee publication.",
-  },
+
 ];
 
 const categories = [
