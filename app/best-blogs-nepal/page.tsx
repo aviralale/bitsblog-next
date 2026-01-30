@@ -1,6 +1,8 @@
 import { Metadata } from "next";
 import Link from "next/link";
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: "Best Blogs in Nepal - Top Nepali Bloggers & Blog Sites",
   description:
