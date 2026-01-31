@@ -2,8 +2,11 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Search, Home, Mail } from "lucide-react";
 
+<<<<<<< HEAD
+=======
 export const dynamic = "force-dynamic";
 
+>>>>>>> 8c52ff4 (feat: Add AboutContent component with real-time statistics and core values)
 export default function NotFound() {
   return (
     <div className="min-h-screen bg-white flex items-center justify-center px-6">

@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Inter, Space_Grotesk } from "next/font/google";
+// import "prismjs/themes/prism-tomorrow.css";
+import { Geist, Geist_Mono } from "next/font/google";
 import { Suspense } from "react";
 import "./globals.css";
-
-import { ResponsiveNavbar } from "@/components/ResponsiveNavbar";
+import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { WebVitals } from "./web-vitals";
@@ -12,39 +12,34 @@ import { AdvancedAnalytics } from "@/components/AdvancedAnalytics";
 
 export const dynamic = "force-dynamic";
 
-const inter = Inter({
-  variable: "--font-inter",
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+  display: "swap", // Prevent invisible text during font load (FOIT)
+  preload: true,
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
   subsets: ["latin"],
   display: "swap",
   preload: true,
-  weight: ["300", "400", "500", "600", "700"],
 });
-
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
-  subsets: ["latin"],
-  display: "swap",
-  preload: true,
-  weight: ["400", "500", "600", "700"],
-});
-
-const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
-  "https://blog.ctrlbits.com";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
-  alternates: { canonical: "/" },
-
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "https://blog.ctrlbits.com",
+  ),
+  alternates: {
+    canonical: "/",
+  },
   title: {
     default:
       "BitsBlog - Best Blogs in Nepal | Digital Infrastructure & Tech Policy Analysis",
     template: "%s | BitsBlog",
   },
-
   description:
     "Discover the best blogs in Nepal and read in-depth analysis on digital infrastructure, tech policy, and digital transformation. Explore top Nepali bloggers, investigative tech journalism, and critical takes on technology ecosystems across Nepal and global markets.",
-
   keywords: [
     // Primary Keywords - Blog Directory
     "best blogs in nepal",
@@ -52,14 +47,12 @@ export const metadata: Metadata = {
     "nepali bloggers",
     "best blog sites",
     "top bloggers nepal",
-
     // Digital Infrastructure & Policy
     "digital infrastructure nepal",
     "tech policy analysis",
     "digital transformation nepal",
     "technology policy",
     "digital governance",
-
     // Nepal Digital Ecosystem
     "nepal digital economy",
     "nepal tech ecosystem",
@@ -67,28 +60,25 @@ export const metadata: Metadata = {
     "nepal internet infrastructure",
     "nepal technology development",
     "digital nepal",
-
     // Blog Topics
     "best blog topics",
     "technology blogs nepal",
     "tech journalism nepal",
     "investigative journalism",
-
     // Global Tech Analysis
     "global digital infrastructure",
     "country tech comparison",
     "digital economy analysis",
     "tech policy research",
     "digital government",
-
-    // Investigative & Critical
+    // Investigative & Controversial
     "tech policy critique",
     "digital rights nepal",
     "technology regulation",
     "internet freedom",
     "tech industry analysis",
     "digital divide nepal",
-
+    "controversial tech topics",
     // Infrastructure Topics
     "5g infrastructure nepal",
     "broadband access nepal",
@@ -98,60 +88,21 @@ export const metadata: Metadata = {
     "cybersecurity nepal",
     "data privacy",
     "tech regulation",
-
     // Blog Discovery
     "blog directory",
     "blog recommendations",
     "quality blogs nepal",
-
-    // Ctrl Bits branded + agency intent
-    "ctrl bits",
-    "ctrlbits",
-    "ctrl bits nepal",
-    "ctrlbits nepal",
-    "ctrl bits blog",
-    "bitsblog",
-    "ctrl bits digital agency",
-    "ctrl bits web development",
-    "ctrl bits seo",
-    "ctrl bits branding",
-    "ctrl bits video editing",
-    "ctrl bits motion graphics",
-    "ctrl bits social media management",
-    "ctrl bits content marketing",
-    "ctrl bits growth marketing",
-
-    // Nepal agency + service keywords
-    "web development company nepal",
-    "website design nepal",
-    "seo agency nepal",
-    "digital marketing agency nepal",
-    "branding agency nepal",
-    "video editing agency nepal",
-    "motion graphics nepal",
-    "social media marketing nepal",
-    "content creation nepal",
-    "performance marketing nepal",
-    "ui ux design nepal",
-    "startup marketing nepal",
-    "sme digital marketing nepal",
   ],
-
   authors: [{ name: "Ctrl Bits" }],
   creator: "Ctrl Bits",
   publisher: "Ctrl Bits",
   category: "Blog Directory & Nepal Blogging Community",
-
-  // ✅ FAVICON FIX (App Router)
-  icons: {
-    icon: [
-      { url: "/favicon.ico" }, // best compatibility
-      { url: "/favicon.png", type: "image/png" },
-    ],
-    apple: [{ url: "/apple-touch-icon.png" }],
-    shortcut: ["/favicon.ico"],
+  verification: {
+    // Add these tokens after claiming your site
+    // google: 'your-google-verification-token',
+    // yandex: 'your-yandex-verification-token',
+    // bing: 'your-bing-verification-token',
   },
-
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -169,7 +120,6 @@ export const metadata: Metadata = {
       },
     ],
   },
-
   twitter: {
     card: "summary_large_image",
     title: "BitsBlog - Best Blogs in Nepal | Top Nepali Bloggers",
@@ -179,7 +129,6 @@ export const metadata: Metadata = {
     creator: "@ctrl_bits",
     images: ["/og-default.jpg"],
   },
-
   robots: {
     index: true,
     follow: true,
@@ -191,14 +140,23 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+  },
   manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
-  // WebSite Schema
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  const SITE_URL =
+    process.env.NEXT_PUBLIC_SITE_URL || "https://blog.ctrlbits.com";
+
+  // WebSite Schema (for search functionality)
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
@@ -254,8 +212,14 @@ export default function RootLayout({
     alternateName: "BitsBlog - Nepal's Blog Directory & Tech Analysis Platform",
     url: SITE_URL,
     areaServed: [
-      { "@type": "Country", name: "Nepal" },
-      { "@type": "Place", name: "Global" },
+      {
+        "@type": "Country",
+        name: "Nepal",
+      },
+      {
+        "@type": "Place",
+        name: "Global",
+      },
     ],
     logo: {
       "@type": "ImageObject",
@@ -291,7 +255,7 @@ export default function RootLayout({
     },
   };
 
-  // LocalBusiness Schema
+  // LocalBusiness Schema - Nepal Focus
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
@@ -307,7 +271,10 @@ export default function RootLayout({
       addressLocality: "Kathmandu",
       postalCode: "44600",
     },
-    areaServed: { "@type": "Country", name: "Nepal" },
+    areaServed: {
+      "@type": "Country",
+      name: "Nepal",
+    },
     priceRange: "Free",
     telephone: "+977-1-XXXX-XXXX",
     email: "hi@ctrlbits.com",
@@ -328,6 +295,7 @@ export default function RootLayout({
       dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
       opens: "09:00",
       closes: "18:00",
+      inLanguage: "en",
     },
     contactPoint: {
       "@type": "ContactPoint",
@@ -335,12 +303,17 @@ export default function RootLayout({
       email: "hi@ctrlbits.com",
       availableLanguage: ["en", "ne"],
     },
-    geo: { "@type": "GeoCoordinates", latitude: 27.7172, longitude: 85.324 },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 27.7172,
+      longitude: 85.324,
+    },
   };
 
   return (
     <html lang="en">
       <head>
+        {/* Viewport Configuration */}
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=5"
@@ -354,7 +327,7 @@ export default function RootLayout({
         />
         <link rel="dns-prefetch" href="https://api-blog.ctrlbits.com" />
 
-        {/* JSON-LD Schemas */}
+        {/* JSON-LD Schemas for Website and Organization */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
@@ -386,28 +359,24 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-
       <body
-        className={`${inter.variable} ${spaceGrotesk.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <AuthProvider>
           <WebVitals />
           <AdvancedAnalytics />
-
           <div className="flex flex-col min-h-screen">
             <Suspense
               fallback={
-                <div className="h-16 md:h-20 border-b border-neutral-200 bg-white" />
+                <div className="h-20 border-b border-neutral-200 bg-white"></div>
               }
             >
-              <ResponsiveNavbar />
+              <Navbar />
             </Suspense>
-
             <main className="grow">{children}</main>
-
             <Suspense
               fallback={
-                <div className="h-64 border-t border-neutral-200 bg-white" />
+                <div className="h-64 border-t border-neutral-200 bg-white"></div>
               }
             >
               <Footer />
