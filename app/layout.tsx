@@ -4,7 +4,7 @@ import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Suspense } from "react";
 import "./globals.css";
-import { Navbar } from "@/components/Navbar";
+import { ResponsiveNavbar } from "@/components/ResponsiveNavbar";
 import { Footer } from "@/components/Footer";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { WebVitals } from "./web-vitals";
@@ -368,10 +368,10 @@ export default function RootLayout({
           <div className="flex flex-col min-h-screen">
             <Suspense
               fallback={
-                <div className="h-20 border-b border-neutral-200 bg-white"></div>
+                <div className="h-16 md:h-20 border-b border-neutral-200 bg-white"></div>
               }
             >
-              <Navbar />
+              <ResponsiveNavbar />
             </Suspense>
             <main className="grow">{children}</main>
             <Suspense
