@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
@@ -753,9 +753,9 @@ export const DetailedAdAnalytics = () => {
                             </p>
                             <div className="flex items-center gap-4 text-xs text-neutral-600">
                               <span>{formatNumber(ad.impressions)} views</span>
-                              <span>•</span>
+                              <span>â€¢</span>
                               <span>{formatNumber(ad.clicks)} clicks</span>
-                              <span>•</span>
+                              <span>â€¢</span>
                               <span className="font-medium text-green-600">
                                 {ad.ctr.toFixed(2)}% CTR
                               </span>
@@ -808,9 +808,9 @@ export const DetailedAdAnalytics = () => {
                             </p>
                             <div className="flex items-center gap-4 text-xs text-neutral-600">
                               <span>{formatNumber(ad.impressions)} views</span>
-                              <span>•</span>
+                              <span>â€¢</span>
                               <span>{formatNumber(ad.clicks)} clicks</span>
-                              <span>•</span>
+                              <span>â€¢</span>
                               <span className="font-medium text-amber-600">
                                 {ad.ctr.toFixed(2)}% CTR
                               </span>

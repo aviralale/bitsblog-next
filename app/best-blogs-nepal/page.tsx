@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import Link from "next/link";
 
 export const dynamic = 'force-dynamic';
@@ -32,7 +32,8 @@ export const metadata: Metadata = {
 };
 
 export default function BestBlogsNepalPage() {
-  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://blog.ctrlbits.com";
+  const SITE_URL =
+    process.env.NEXT_PUBLIC_SITE_URL || "https://blog.ctrlbits.com";
 
   // FAQ Schema for Best Blogs Questions
   const faqSchema = {
@@ -119,25 +120,26 @@ export default function BestBlogsNepalPage() {
     "@context": "https://schema.org",
     "@type": "HowTo",
     name: "How to Start One of the Best Blogs in Nepal",
-    description: "Complete step-by-step guide to starting a successful blog in Nepal, from choosing your niche to promoting your content.",
+    description:
+      "Complete step-by-step guide to starting a successful blog in Nepal, from choosing your niche to promoting your content.",
     image: {
       "@type": "ImageObject",
       url: `${SITE_URL}/favicon.png`,
       width: 512,
-      height: 512
+      height: 512,
     },
     totalTime: "PT2H",
     estimatedCost: {
       "@type": "PriceSpecification",
       currency: "USD",
-      price: "50-200"
+      price: "50-200",
     },
     tool: [
       "WordPress",
       "Blogging Platform",
       "Domain Name",
       "Web Hosting",
-      "Blog Theme"
+      "Blog Theme",
     ],
     step: [
       {
@@ -145,63 +147,63 @@ export default function BestBlogsNepalPage() {
         position: 1,
         name: "Choose Your Niche",
         text: "Select from best blog topics that match your expertise and passion. Popular niches in Nepal include technology, travel, lifestyle, business, and photography.",
-        url: `${SITE_URL}/best-blogs-nepal#start-blog`
+        url: `${SITE_URL}/best-blogs-nepal#start-blog`,
       },
       {
         "@type": "HowToStep",
         position: 2,
         name: "Select a Blogging Platform",
-        text: "WordPress is recommended for most bloggers as it offers the best flexibility with numerous themes and plugins, making it ideal for both beginners and advanced bloggers."
+        text: "WordPress is recommended for most bloggers as it offers the best flexibility with numerous themes and plugins, making it ideal for both beginners and advanced bloggers.",
       },
       {
         "@type": "HowToStep",
         position: 3,
         name: "Pick a Domain Name",
-        text: "Choose a memorable .com.np or .com domain name that reflects your blog's focus and is easy to remember for your audience."
+        text: "Choose a memorable .com.np or .com domain name that reflects your blog's focus and is easy to remember for your audience.",
       },
       {
         "@type": "HowToStep",
         position: 4,
         name: "Get Web Hosting",
-        text: "Use reliable hosting providers with Nepal data centers for better performance and local support. Ensure your host supports WordPress 1-click installation."
+        text: "Use reliable hosting providers with Nepal data centers for better performance and local support. Ensure your host supports WordPress 1-click installation.",
       },
       {
         "@type": "HowToStep",
         position: 5,
         name: "Install WordPress",
-        text: "Most hosting providers offer 1-click WordPress installation. Follow the setup wizard to configure your blog basics and settings."
+        text: "Most hosting providers offer 1-click WordPress installation. Follow the setup wizard to configure your blog basics and settings.",
       },
       {
         "@type": "HowToStep",
         position: 6,
         name: "Choose a Blog Theme",
-        text: "Select from best WordPress themes for blogs that match your brand. Ensure the theme is responsive, fast-loading, and SEO-optimized."
+        text: "Select from best WordPress themes for blogs that match your brand. Ensure the theme is responsive, fast-loading, and SEO-optimized.",
       },
       {
         "@type": "HowToStep",
         position: 7,
         name: "Create Quality Content",
-        text: "Write valuable, engaging, and original posts for your audience. Focus on providing solutions to your readers' problems and addressing their interests."
+        text: "Write valuable, engaging, and original posts for your audience. Focus on providing solutions to your readers' problems and addressing their interests.",
       },
       {
         "@type": "HowToStep",
         position: 8,
         name: "Promote Your Blog",
-        text: "Use social media platforms and implement SEO best practices to reach more readers. Share your content on Twitter, Facebook, and LinkedIn to build your audience."
+        text: "Use social media platforms and implement SEO best practices to reach more readers. Share your content on Twitter, Facebook, and LinkedIn to build your audience.",
       },
       {
         "@type": "HowToStep",
         position: 9,
         name: "Build Community",
-        text: "Engage with other Nepali bloggers, respond to comments, and participate in blogging communities. Networking helps grow your blog and establish authority."
+        text: "Engage with other Nepali bloggers, respond to comments, and participate in blogging communities. Networking helps grow your blog and establish authority.",
       },
       {
         "@type": "HowToStep",
         position: 10,
         name: "Monetize Your Blog",
-        text: "Once established with consistent traffic, explore revenue options such as display ads, affiliate marketing, sponsored posts, and digital products."
-      }
-    ]
+        text: "Once established with consistent traffic, explore revenue options such as display ads, affiliate marketing, sponsored posts, and digital products.",
+      },
+    ],
   };
 
   return (
@@ -228,8 +230,8 @@ export default function BestBlogsNepalPage() {
               Best Blogs in Nepal - Discover Top Nepali Bloggers
             </h1>
             <p className="text-xl text-neutral-600 dark:text-neutral-400">
-              Your comprehensive guide to the best blog sites, trending blog topics,
-              and Nepal's vibrant blogging community
+              Your comprehensive guide to the best blog sites, trending blog
+              topics, and Nepal's vibrant blogging community
             </p>
           </header>
 
@@ -237,10 +239,10 @@ export default function BestBlogsNepalPage() {
           <section className="mb-12">
             <p className="lead text-lg">
               Nepal's blogging landscape has grown tremendously, with talented{" "}
-              <strong>Nepali bloggers</strong> creating exceptional content across
-              technology, lifestyle, travel, business, and culture. This guide
-              showcases the <strong>best blogs in Nepal</strong>, helping you
-              discover quality content and trending blog topics.
+              <strong>Nepali bloggers</strong> creating exceptional content
+              across technology, lifestyle, travel, business, and culture. This
+              guide showcases the <strong>best blogs in Nepal</strong>, helping
+              you discover quality content and trending blog topics.
             </p>
           </section>
 
@@ -248,11 +250,12 @@ export default function BestBlogsNepalPage() {
           <section className="mb-12">
             <h2 id="blog-categories">Best Blog Categories in Nepal</h2>
 
-            <h3>🖥️ Technology & Digital Blogs</h3>
+            <h3>ðŸ–¥ï¸ Technology & Digital Blogs</h3>
             <p>
               The <strong>best technology blogs in Nepal</strong> cover software
-              development, AI, digital marketing, cybersecurity, and tech trends.
-              These blogs are essential reading for Nepal's growing tech community.
+              development, AI, digital marketing, cybersecurity, and tech
+              trends. These blogs are essential reading for Nepal's growing tech
+              community.
             </p>
             <ul>
               <li>Programming tutorials and coding best practices</li>
@@ -262,11 +265,11 @@ export default function BestBlogsNepalPage() {
               <li>Cybersecurity tips for Nepal</li>
             </ul>
 
-            <h3>✈️ Travel & Tourism Blogs</h3>
+            <h3>âœˆï¸ Travel & Tourism Blogs</h3>
             <p>
               Nepal's <strong>best travel blogs</strong> showcase the country's
-              incredible destinations, trekking routes, cultural experiences, and
-              travel tips for both locals and international visitors.
+              incredible destinations, trekking routes, cultural experiences,
+              and travel tips for both locals and international visitors.
             </p>
             <ul>
               <li>Himalayan trekking guides and tips</li>
@@ -276,7 +279,7 @@ export default function BestBlogsNepalPage() {
               <li>Hidden gems and off-the-beaten-path locations</li>
             </ul>
 
-            <h3>💼 Business & Entrepreneurship Blogs</h3>
+            <h3>ðŸ’¼ Business & Entrepreneurship Blogs</h3>
             <p>
               <strong>Best business blogs in Nepal</strong> provide insights on
               entrepreneurship, startups, digital transformation, and business
@@ -290,11 +293,11 @@ export default function BestBlogsNepalPage() {
               <li>Personal finance and investment tips</li>
             </ul>
 
-            <h3>🎨 Lifestyle & Personal Blogs</h3>
+            <h3>ðŸŽ¨ Lifestyle & Personal Blogs</h3>
             <p>
               Nepal's <strong>best lifestyle blogs</strong> cover fashion, food,
-              health, wellness, relationships, and personal development, offering
-              practical advice for modern living in Nepal.
+              health, wellness, relationships, and personal development,
+              offering practical advice for modern living in Nepal.
             </p>
             <ul>
               <li>Nepali fashion trends and styling tips</li>
@@ -304,11 +307,11 @@ export default function BestBlogsNepalPage() {
               <li>Parenting and family life</li>
             </ul>
 
-            <h3>📸 Photography & Creative Blogs</h3>
+            <h3>ðŸ“¸ Photography & Creative Blogs</h3>
             <p>
-              <strong>Best design blogs</strong> and photography platforms showcase
-              Nepal's visual creativity, from landscape photography to graphic
-              design and digital art.
+              <strong>Best design blogs</strong> and photography platforms
+              showcase Nepal's visual creativity, from landscape photography to
+              graphic design and digital art.
             </p>
             <ul>
               <li>Photography tutorials and techniques</li>
@@ -323,8 +326,8 @@ export default function BestBlogsNepalPage() {
           <section className="mb-12">
             <h2 id="trending-topics">Trending Blog Topics in Nepal</h2>
             <p>
-              The <strong>best blog topics</strong> in Nepal attract engaged readers
-              and build strong communities:
+              The <strong>best blog topics</strong> in Nepal attract engaged
+              readers and build strong communities:
             </p>
 
             <div className="grid md:grid-cols-2 gap-6">
@@ -380,8 +383,8 @@ export default function BestBlogsNepalPage() {
               Best Blogging Platforms for Nepal Bloggers
             </h2>
             <p>
-              Choosing the <strong>best blogging platform</strong> is crucial for
-              your success. Here are the top options for Nepali bloggers:
+              Choosing the <strong>best blogging platform</strong> is crucial
+              for your success. Here are the top options for Nepali bloggers:
             </p>
 
             <h3>1. WordPress (Most Popular)</h3>
@@ -447,10 +450,12 @@ export default function BestBlogsNepalPage() {
 
           {/* Best WordPress Themes */}
           <section className="mb-12">
-            <h2 id="wordpress-themes">Best WordPress Themes for Blogs in Nepal</h2>
+            <h2 id="wordpress-themes">
+              Best WordPress Themes for Blogs in Nepal
+            </h2>
             <p>
-              Choosing the right theme is essential for your blog's success. Here
-              are the <strong>best WordPress themes for blogs</strong>:
+              Choosing the right theme is essential for your blog's success.
+              Here are the <strong>best WordPress themes for blogs</strong>:
             </p>
 
             <h3>Free Themes</h3>
@@ -460,10 +465,12 @@ export default function BestBlogsNepalPage() {
                 customizable
               </li>
               <li>
-                <strong>GeneratePress</strong> - Speed-focused with excellent SEO
+                <strong>GeneratePress</strong> - Speed-focused with excellent
+                SEO
               </li>
               <li>
-                <strong>Kadence</strong> - Beautiful design with starter templates
+                <strong>Kadence</strong> - Beautiful design with starter
+                templates
               </li>
               <li>
                 <strong>OceanWP</strong> - Feature-rich and versatile
@@ -513,12 +520,12 @@ export default function BestBlogsNepalPage() {
                 recommended for most bloggers
               </li>
               <li>
-                <strong>Pick a Domain Name:</strong> Choose a memorable .com.np or
-                .com domain
+                <strong>Pick a Domain Name:</strong> Choose a memorable .com.np
+                or .com domain
               </li>
               <li>
-                <strong>Get Hosting:</strong> Use reliable hosting providers with
-                Nepal data centers
+                <strong>Get Hosting:</strong> Use reliable hosting providers
+                with Nepal data centers
               </li>
               <li>
                 <strong>Install WordPress:</strong> Most hosts offer 1-click
@@ -558,19 +565,20 @@ export default function BestBlogsNepalPage() {
             <div className="grid md:grid-cols-3 gap-4 my-8">
               <Link
                 href="/categories"
-                className="bg-gradient-to-br from-blue-500 to-blue-600 text-white p-6 rounded-lg hover:shadow-lg transition-shadow no-underline"
+                className="bg-linear-to-br from-blue-500 to-blue-600 text-white p-6 rounded-lg hover:shadow-lg transition-shadow no-underline"
               >
-                <h3 className="text-white mb-2">📂 Browse Categories</h3>
+                <h3 className="text-white mb-2">ðŸ“‚ Browse Categories</h3>
                 <p className="text-blue-100 text-sm">
-                  Explore blogs by topic - Tech, Travel, Lifestyle, Business & more
+                  Explore blogs by topic - Tech, Travel, Lifestyle, Business &
+                  more
                 </p>
               </Link>
 
               <Link
                 href="/tags"
-                className="bg-gradient-to-br from-green-500 to-green-600 text-white p-6 rounded-lg hover:shadow-lg transition-shadow no-underline"
+                className="bg-linear-to-br from-green-500 to-green-600 text-white p-6 rounded-lg hover:shadow-lg transition-shadow no-underline"
               >
-                <h3 className="text-white mb-2">🏷️ Explore Tags</h3>
+                <h3 className="text-white mb-2">ðŸ·ï¸ Explore Tags</h3>
                 <p className="text-green-100 text-sm">
                   Find blogs by trending topics and interests
                 </p>
@@ -578,9 +586,9 @@ export default function BestBlogsNepalPage() {
 
               <Link
                 href="/articles"
-                className="bg-gradient-to-br from-purple-500 to-purple-600 text-white p-6 rounded-lg hover:shadow-lg transition-shadow no-underline"
+                className="bg-linear-to-br from-purple-500 to-purple-600 text-white p-6 rounded-lg hover:shadow-lg transition-shadow no-underline"
               >
-                <h3 className="text-white mb-2">📝 Latest Articles</h3>
+                <h3 className="text-white mb-2">ðŸ“ Latest Articles</h3>
                 <p className="text-purple-100 text-sm">
                   Read the newest posts from top Nepali bloggers
                 </p>
@@ -609,10 +617,10 @@ export default function BestBlogsNepalPage() {
 
             <h3>How do Nepali bloggers make money?</h3>
             <p>
-              Nepali bloggers monetize through Google AdSense, affiliate marketing,
-              sponsored posts, selling digital products, offering services, and
-              membership programs. Success requires consistent quality content and
-              audience building.
+              Nepali bloggers monetize through Google AdSense, affiliate
+              marketing, sponsored posts, selling digital products, offering
+              services, and membership programs. Success requires consistent
+              quality content and audience building.
             </p>
 
             <h3>What are the best blog topics for Nepal audience?</h3>
@@ -625,19 +633,20 @@ export default function BestBlogsNepalPage() {
 
             <h3>How often should I publish on my Nepal blog?</h3>
             <p>
-              Consistency matters more than frequency. Start with 1-2 quality posts
-              per week. The best blogs in Nepal maintain regular publishing
-              schedules, whether weekly or bi-weekly, rather than sporadic posting.
+              Consistency matters more than frequency. Start with 1-2 quality
+              posts per week. The best blogs in Nepal maintain regular
+              publishing schedules, whether weekly or bi-weekly, rather than
+              sporadic posting.
             </p>
           </section>
 
           {/* CTA */}
-          <section className="text-center bg-gradient-to-r from-blue-500 to-purple-600 text-white p-12 rounded-lg">
+          <section className="text-center bg-linear-to-r from-blue-500 to-purple-600 text-white p-12 rounded-lg">
             <h2 className="text-white mb-4">Join Nepal's Blogging Community</h2>
             <p className="mb-6 text-blue-50">
               Discover amazing content from the best blogs in Nepal. Explore
-              trending topics, connect with Nepali bloggers, and stay updated with
-              the latest articles.
+              trending topics, connect with Nepali bloggers, and stay updated
+              with the latest articles.
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
               <Link
@@ -659,3 +668,4 @@ export default function BestBlogsNepalPage() {
     </>
   );
 }
+

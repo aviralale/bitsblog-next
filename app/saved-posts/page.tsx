@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
@@ -391,12 +391,12 @@ export default function SavedPosts() {
                                 <User className="h-3.5 w-3.5" />
                                 <span>{savedPost.post.author.username}</span>
                               </div>
-                              <span>•</span>
+                              <span>â€¢</span>
                               <div className="flex items-center gap-1">
                                 <Eye className="h-3.5 w-3.5" />
                                 <span>{savedPost.post.views} views</span>
                               </div>
-                              <span>•</span>
+                              <span>â€¢</span>
                               <div className="flex items-center gap-1">
                                 <Calendar className="h-3.5 w-3.5" />
                                 <span>

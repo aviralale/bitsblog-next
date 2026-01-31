@@ -1,4 +1,5 @@
-"use client";
+﻿"use client";
+
 import { useEffect, useState } from "react";
 
 import { postAPI } from "@/api/services";
@@ -39,7 +40,9 @@ const Home = () => {
     try {
       const response = await postAPI.getAll({ page, status: "published" });
       setPosts((prev) =>
-        page === 1 ? response.data.results : [...prev, ...response.data.results]
+        page === 1
+          ? response.data.results
+          : [...prev, ...response.data.results],
       );
       setHasMore(!!response.data.next);
     } catch (error) {
@@ -271,8 +274,8 @@ const Home = () => {
 
               <p className="text-lg text-neutral-500 font-light mb-12 leading-relaxed">
                 Built by developers, for developers. Ctrl Bits brings you
-                thoughtful content that matters—no fluff, just bits of knowledge
-                that elevate your craft.
+                thoughtful content that mattersâ€”no fluff, just bits of
+                knowledge that elevate your craft.
               </p>
 
               <div className="flex flex-wrap gap-4">
@@ -313,7 +316,7 @@ const Home = () => {
               <div className="text-center">
                 <div className="text-4xl font-light text-black mb-2">
                   {Math.floor(
-                    posts.reduce((sum, post) => sum + post.views, 0) / 1000
+                    posts.reduce((sum, post) => sum + post.views, 0) / 1000,
                   )}
                   K+
                 </div>
@@ -325,7 +328,7 @@ const Home = () => {
                 <div className="text-4xl font-light text-black mb-2">
                   {
                     new Set(
-                      posts.map((post) => post.category?.name).filter(Boolean)
+                      posts.map((post) => post.category?.name).filter(Boolean),
                     ).size
                   }
                   +
@@ -378,7 +381,7 @@ const Home = () => {
                         {posts[0].category.name}
                       </span>
                     )}
-                    <span className="text-xs text-neutral-400">•</span>
+                    <span className="text-xs text-neutral-400">â€¢</span>
                     <span className="text-xs text-neutral-500">
                       {formatDate(posts[0].created_at)}
                     </span>
@@ -438,7 +441,7 @@ const Home = () => {
                           {post.category.name}
                         </span>
                       )}
-                      <span className="text-xs text-neutral-400">•</span>
+                      <span className="text-xs text-neutral-400">â€¢</span>
                       <span className="text-xs text-neutral-500">
                         {formatDate(post.created_at)}
                       </span>

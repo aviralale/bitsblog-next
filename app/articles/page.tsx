@@ -1,14 +1,16 @@
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import { Suspense } from "react";
 import ArticlesPageContent from "./ArticlesPageContent";
 
 export const dynamic = 'force-dynamic';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://blog.ctrlbits.com";
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://blog.ctrlbits.com";
 
 export const metadata: Metadata = {
   title: "All Articles | BitsBlog",
-  description: "Browse all articles on web development, AI, software engineering, programming tutorials, and technology insights. Stay updated with the latest tech trends and in-depth guides.",
+  description:
+    "Browse all articles on web development, AI, software engineering, programming tutorials, and technology insights. Stay updated with the latest tech trends and in-depth guides.",
   keywords: [
     "tech articles",
     "programming tutorials",
@@ -23,7 +25,8 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "All Articles | BitsBlog",
-    description: "Browse all articles on web development, AI, software engineering, and technology insights.",
+    description:
+      "Browse all articles on web development, AI, software engineering, and technology insights.",
     url: `${SITE_URL}/articles`,
     siteName: "BitsBlog",
     locale: "en_US",
@@ -40,7 +43,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "All Articles | BitsBlog",
-    description: "Browse all articles on web development, AI, software engineering, and technology insights.",
+    description:
+      "Browse all articles on web development, AI, software engineering, and technology insights.",
     site: "@ctrl_bits",
     creator: "@ctrl_bits",
     images: [`${SITE_URL}/og-default.jpg`],
@@ -64,3 +68,4 @@ export default function ArticlesPage() {
     </Suspense>
   );
 }
+

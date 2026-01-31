@@ -1,4 +1,5 @@
-"use client";
+﻿"use client";
+
 import { useState, useEffect } from "react";
 
 import {
@@ -77,7 +78,7 @@ const CategoriesPage = () => {
     (category) =>
       category.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       (category.description &&
-        category.description.toLowerCase().includes(searchTerm.toLowerCase()))
+        category.description.toLowerCase().includes(searchTerm.toLowerCase())),
   );
 
   /**

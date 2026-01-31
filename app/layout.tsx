@@ -2,12 +2,15 @@ import type { Metadata } from "next";
 import Script from "next/script";
 // import "prismjs/themes/prism-tomorrow.css";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Suspense } from "react";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { WebVitals } from "./web-vitals";
 import { AdvancedAnalytics } from "@/components/AdvancedAnalytics";
+
+export const dynamic = "force-dynamic";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,7 +34,8 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   title: {
-    default: "BitsBlog - Best Blogs in Nepal | Digital Infrastructure & Tech Policy Analysis",
+    default:
+      "BitsBlog - Best Blogs in Nepal | Digital Infrastructure & Tech Policy Analysis",
     template: "%s | BitsBlog",
   },
   description:
@@ -149,18 +153,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://blog.ctrlbits.com";
+  const SITE_URL =
+    process.env.NEXT_PUBLIC_SITE_URL || "https://blog.ctrlbits.com";
 
   // WebSite Schema (for search functionality)
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "BitsBlog - Best Blogs in Nepal & Digital Infrastructure Analysis",
-    alternateName: [
-      "BitsBlog",
-      "BitsBlog Nepal",
-      "Best Nepal Blog Directory"
-    ],
+    alternateName: ["BitsBlog", "BitsBlog Nepal", "Best Nepal Blog Directory"],
     url: SITE_URL,
     description:
       "Premier blog directory showcasing the best blogs in Nepal, featuring top Nepali bloggers and original investigative journalism on digital infrastructure, technology policy, and digital transformation across Nepal and global markets.",
@@ -168,19 +169,22 @@ export default function RootLayout({
       {
         "@type": "Thing",
         name: "Best Blogs in Nepal",
-        description: "Curated directory of top blogs and bloggers from Nepal"
+        description: "Curated directory of top blogs and bloggers from Nepal",
       },
       {
         "@type": "Thing",
         name: "Digital Infrastructure Analysis",
-        description: "Investigative reporting on digital infrastructure, tech policy, and controversial technology topics"
-      }
+        description:
+          "Investigative reporting on digital infrastructure, tech policy, and controversial technology topics",
+      },
     ],
     audience: {
       "@type": "Audience",
-      audienceType: "Content Readers, Blog Enthusiasts, Policymakers, Tech Professionals, Researchers, Digital Rights Advocates"
+      audienceType:
+        "Content Readers, Blog Enthusiasts, Policymakers, Tech Professionals, Researchers, Digital Rights Advocates",
     },
-    keywords: "best blogs in nepal, digital infrastructure, tech policy, nepali bloggers, technology analysis, digital transformation, investigative journalism",
+    keywords:
+      "best blogs in nepal, digital infrastructure, tech policy, nepali bloggers, technology analysis, digital transformation, investigative journalism",
     publisher: {
       "@type": "Organization",
       name: "Ctrl Bits",
@@ -210,12 +214,12 @@ export default function RootLayout({
     areaServed: [
       {
         "@type": "Country",
-        name: "Nepal"
+        name: "Nepal",
       },
       {
         "@type": "Place",
-        name: "Global"
-      }
+        name: "Global",
+      },
     ],
     logo: {
       "@type": "ImageObject",
@@ -236,7 +240,7 @@ export default function RootLayout({
       "Internet Infrastructure",
       "Digital Rights",
       "Technology Regulation",
-      "Nepali Bloggers"
+      "Nepali Bloggers",
     ],
     sameAs: [
       "https://github.com/ctrlbits",
@@ -257,18 +261,19 @@ export default function RootLayout({
     "@type": "LocalBusiness",
     name: "Ctrl Bits - BitsBlog",
     alternateName: "BitsBlog - Nepal Blog Directory & Tech Analysis",
-    description: "Digital media organization based in Nepal, curating the best blogs from Nepal's blogging community while publishing original investigative journalism on digital infrastructure, technology policy, and controversial tech topics across Nepal and global markets.",
+    description:
+      "Digital media organization based in Nepal, curating the best blogs from Nepal's blogging community while publishing original investigative journalism on digital infrastructure, technology policy, and controversial tech topics across Nepal and global markets.",
     url: SITE_URL,
     address: {
       "@type": "PostalAddress",
       addressCountry: "NP",
       addressRegion: "Bagmati",
       addressLocality: "Kathmandu",
-      postalCode: "44600"
+      postalCode: "44600",
     },
     areaServed: {
       "@type": "Country",
-      name: "Nepal"
+      name: "Nepal",
     },
     priceRange: "Free",
     telephone: "+977-1-XXXX-XXXX",
@@ -277,96 +282,108 @@ export default function RootLayout({
       "@type": "ImageObject",
       url: `${SITE_URL}/favicon.png`,
       width: 512,
-      height: 512
+      height: 512,
     },
     image: `${SITE_URL}/favicon.png`,
     sameAs: [
       "https://github.com/ctrlbits",
       "https://twitter.com/ctrl_bits",
-      "https://linkedin.com/company/ctrlbits"
+      "https://linkedin.com/company/ctrlbits",
     ],
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
       opens: "09:00",
       closes: "18:00",
-      inLanguage: "en"
+      inLanguage: "en",
     },
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "Customer Service",
       email: "hi@ctrlbits.com",
-      availableLanguage: ["en", "ne"]
+      availableLanguage: ["en", "ne"],
     },
     geo: {
       "@type": "GeoCoordinates",
       latitude: 27.7172,
-      longitude: 85.3240
-    }
+      longitude: 85.324,
+    },
   };
 
   return (
-    <AuthProvider>
-      <html lang="en">
-        <head>
-          {/* Viewport Configuration */}
-          <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, maximum-scale=5"
-          />
-          
-          {/* Preconnect to API domain for faster resource loading */}
-          <link
-            rel="preconnect"
-            href="https://api-blog.ctrlbits.com"
-            crossOrigin="anonymous"
-          />
-          <link rel="dns-prefetch" href="https://api-blog.ctrlbits.com" />
-          
-          {/* JSON-LD Schemas for Website and Organization */}
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
-          />
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify(organizationSchema),
-            }}
-          />
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify(localBusinessSchema),
-            }}
-          />
+    <html lang="en">
+      <head>
+        {/* Viewport Configuration */}
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=5"
+        />
 
-          {/* Google Analytics */}
-          <Script
-            src="https://www.googletagmanager.com/gtag/js?id=G-B3Z5X0ZL4B"
-            strategy="afterInteractive"
-          />
-          <Script id="google-analytics" strategy="afterInteractive">
-            {`
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-B3Z5X0ZL4B');
-            `}
-          </Script>
-        </head>
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        >
+        {/* Preconnect to API domain for faster resource loading */}
+        <link
+          rel="preconnect"
+          href="https://api-blog.ctrlbits.com"
+          crossOrigin="anonymous"
+        />
+        <link rel="dns-prefetch" href="https://api-blog.ctrlbits.com" />
+
+        {/* JSON-LD Schemas for Website and Organization */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(localBusinessSchema),
+          }}
+        />
+
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-B3Z5X0ZL4B"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-B3Z5X0ZL4B');
+          `}
+        </Script>
+      </head>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        <AuthProvider>
           <WebVitals />
           <AdvancedAnalytics />
           <div className="flex flex-col min-h-screen">
-            <Navbar />
+            <Suspense
+              fallback={
+                <div className="h-20 border-b border-neutral-200 bg-white"></div>
+              }
+            >
+              <Navbar />
+            </Suspense>
             <main className="grow">{children}</main>
-            <Footer />
+            <Suspense
+              fallback={
+                <div className="h-64 border-t border-neutral-200 bg-white"></div>
+              }
+            >
+              <Footer />
+            </Suspense>
           </div>
-        </body>
-      </html>
-    </AuthProvider>
+        </AuthProvider>
+      </body>
+    </html>
   );
 }

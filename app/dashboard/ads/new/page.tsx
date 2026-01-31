@@ -1,6 +1,6 @@
-"use client";
+﻿"use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useRouter, useParams } from "next/navigation";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -49,59 +49,59 @@ const AD_PLACEMENTS: AdPlacement[] = [
     value: "header_banner",
     label: "Header Banner",
     description: "Top of the page, high visibility",
-    recommendedSize: "728×90px or 970×250px",
+    recommendedSize: "728Ã—90px or 970Ã—250px",
   },
   {
     value: "sidebar_top",
     label: "Sidebar Top",
     description: "Top of sidebar, persistent",
-    recommendedSize: "300×250px",
+    recommendedSize: "300Ã—250px",
   },
   {
     value: "sidebar_middle",
     label: "Sidebar Middle",
     description: "Middle sidebar position",
-    recommendedSize: "300×250px or 300×600px",
+    recommendedSize: "300Ã—250px or 300Ã—600px",
   },
   {
     value: "sidebar_bottom",
     label: "Sidebar Bottom",
     description: "Bottom of sidebar",
-    recommendedSize: "300×250px",
+    recommendedSize: "300Ã—250px",
   },
   {
     value: "in_content_top",
     label: "In Content Top",
     description: "After first paragraph",
-    recommendedSize: "728×90px or 300×250px",
+    recommendedSize: "728Ã—90px or 300Ã—250px",
   },
   {
     value: "in_content_middle",
     label: "In Content Middle",
     description: "Middle of content",
-    recommendedSize: "728×90px or 300×250px",
+    recommendedSize: "728Ã—90px or 300Ã—250px",
   },
   {
     value: "in_content_bottom",
     label: "In Content Bottom",
     description: "End of content",
-    recommendedSize: "728×90px or 300×250px",
+    recommendedSize: "728Ã—90px or 300Ã—250px",
   },
   {
     value: "before_comments",
     label: "Before Comments",
     description: "Above comment section",
-    recommendedSize: "728×90px",
+    recommendedSize: "728Ã—90px",
   },
   {
     value: "footer",
     label: "Footer",
     description: "Bottom of page",
-    recommendedSize: "728×90px",
+    recommendedSize: "728Ã—90px",
   },
 ];
 
-const AdCreation = () => {
+const AdCreationContent = () => {
   const router = useRouter();
   const params = useParams();
   const slug = params?.slug as string | undefined;
@@ -746,9 +746,9 @@ const AdCreation = () => {
                           Recommended Dimensions:
                         </h4>
                         <ul className="text-xs text-neutral-600 space-y-1">
-                          <li>• Sidebar: 300×250px or 300×600px</li>
-                          <li>• Banner: 728×90px or 970×250px</li>
-                          <li>• Mobile: 320×50px or 320×100px</li>
+                          <li>â€¢ Sidebar: 300Ã—250px or 300Ã—600px</li>
+                          <li>â€¢ Banner: 728Ã—90px or 970Ã—250px</li>
+                          <li>â€¢ Mobile: 320Ã—50px or 320Ã—100px</li>
                         </ul>
                       </div>
 
@@ -757,9 +757,9 @@ const AdCreation = () => {
                           File Requirements:
                         </h4>
                         <ul className="text-xs text-neutral-600 space-y-1">
-                          <li>• Format: JPG or PNG</li>
-                          <li>• Max size: 200KB</li>
-                          <li>• 2x resolution for retina (optional)</li>
+                          <li>â€¢ Format: JPG or PNG</li>
+                          <li>â€¢ Max size: 200KB</li>
+                          <li>â€¢ 2x resolution for retina (optional)</li>
                         </ul>
                       </div>
 
@@ -768,11 +768,11 @@ const AdCreation = () => {
                           Design Tips:
                         </h4>
                         <ul className="text-xs text-neutral-600 space-y-1">
-                          <li>✓ Clear, readable text</li>
-                          <li>✓ Single focal point</li>
-                          <li>✓ Brand colors</li>
-                          <li>✓ Strong CTA button</li>
-                          <li>✗ No misleading content</li>
+                          <li>âœ“ Clear, readable text</li>
+                          <li>âœ“ Single focal point</li>
+                          <li>âœ“ Brand colors</li>
+                          <li>âœ“ Strong CTA button</li>
+                          <li>âœ— No misleading content</li>
                         </ul>
                       </div>
                     </CardContent>
@@ -863,12 +863,12 @@ const AdCreation = () => {
                           Specifications:
                         </h4>
                         <ul className="text-xs text-neutral-600 space-y-1">
-                          <li>• Format: MP4 or WebM</li>
-                          <li>• Resolution: 720p or 1080p</li>
-                          <li>• Aspect Ratio: 16:9</li>
-                          <li>• Max Duration: 30 seconds</li>
-                          <li>• Max File Size: 50MB</li>
-                          <li>• No auto-play sound</li>
+                          <li>â€¢ Format: MP4 or WebM</li>
+                          <li>â€¢ Resolution: 720p or 1080p</li>
+                          <li>â€¢ Aspect Ratio: 16:9</li>
+                          <li>â€¢ Max Duration: 30 seconds</li>
+                          <li>â€¢ Max File Size: 50MB</li>
+                          <li>â€¢ No auto-play sound</li>
                         </ul>
                       </div>
 
@@ -877,11 +877,11 @@ const AdCreation = () => {
                           Design Tips:
                         </h4>
                         <ul className="text-xs text-neutral-600 space-y-1">
-                          <li>✓ Hook in first 3 seconds</li>
-                          <li>✓ Clear product benefit</li>
-                          <li>✓ End screen with CTA</li>
-                          <li>✓ Thumbnail matches video</li>
-                          <li>✓ Subtitles for silent viewing</li>
+                          <li>âœ“ Hook in first 3 seconds</li>
+                          <li>âœ“ Clear product benefit</li>
+                          <li>âœ“ End screen with CTA</li>
+                          <li>âœ“ Thumbnail matches video</li>
+                          <li>âœ“ Subtitles for silent viewing</li>
                         </ul>
                       </div>
                     </CardContent>
@@ -927,11 +927,11 @@ const AdCreation = () => {
                           Best Practices:
                         </h4>
                         <ul className="text-xs text-neutral-600 space-y-1">
-                          <li>✓ Test before deploying</li>
-                          <li>✓ Ensure responsive</li>
-                          <li>✗ No malicious scripts</li>
-                          <li>✓ Follow ad network guidelines</li>
-                          <li>✓ Monitor performance</li>
+                          <li>âœ“ Test before deploying</li>
+                          <li>âœ“ Ensure responsive</li>
+                          <li>âœ— No malicious scripts</li>
+                          <li>âœ“ Follow ad network guidelines</li>
+                          <li>âœ“ Monitor performance</li>
                         </ul>
                       </div>
 
@@ -1094,11 +1094,11 @@ const AdCreation = () => {
                         Design Excellence:
                       </h4>
                       <ul className="text-xs text-neutral-600 space-y-1">
-                        <li>• Use high-contrast colors for CTA buttons</li>
-                        <li>• Keep text minimal and readable</li>
-                        <li>• Test multiple variations (A/B testing)</li>
-                        <li>• Match your brand style consistently</li>
-                        <li>• Use urgency sparingly and honestly</li>
+                        <li>â€¢ Use high-contrast colors for CTA buttons</li>
+                        <li>â€¢ Keep text minimal and readable</li>
+                        <li>â€¢ Test multiple variations (A/B testing)</li>
+                        <li>â€¢ Match your brand style consistently</li>
+                        <li>â€¢ Use urgency sparingly and honestly</li>
                       </ul>
                     </div>
 
@@ -1107,11 +1107,11 @@ const AdCreation = () => {
                         Targeting & Placement:
                       </h4>
                       <ul className="text-xs text-neutral-600 space-y-1">
-                        <li>• Choose relevant placement locations</li>
-                        <li>• Consider user journey and intent</li>
-                        <li>• Avoid ad overload on single page</li>
-                        <li>• Rotate ads to prevent fatigue</li>
-                        <li>• Track performance by placement</li>
+                        <li>â€¢ Choose relevant placement locations</li>
+                        <li>â€¢ Consider user journey and intent</li>
+                        <li>â€¢ Avoid ad overload on single page</li>
+                        <li>â€¢ Rotate ads to prevent fatigue</li>
+                        <li>â€¢ Track performance by placement</li>
                       </ul>
                     </div>
 
@@ -1120,11 +1120,11 @@ const AdCreation = () => {
                         Analytics & Optimization:
                       </h4>
                       <ul className="text-xs text-neutral-600 space-y-1">
-                        <li>• Monitor CTR and conversion rates</li>
-                        <li>• Review weekly performance reports</li>
-                        <li>• Pause underperforming ads</li>
-                        <li>• Scale successful campaigns</li>
-                        <li>• Continuously test and improve</li>
+                        <li>â€¢ Monitor CTR and conversion rates</li>
+                        <li>â€¢ Review weekly performance reports</li>
+                        <li>â€¢ Pause underperforming ads</li>
+                        <li>â€¢ Scale successful campaigns</li>
+                        <li>â€¢ Continuously test and improve</li>
                       </ul>
                     </div>
                   </CardContent>
@@ -1189,6 +1189,20 @@ const AdCreation = () => {
         </div>
       </div>
     </AdminRoute>
+  );
+};
+
+const AdCreation = () => {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-white flex items-center justify-center">
+          <div className="w-8 h-8 border-2 border-black border-t-transparent rounded-full animate-spin"></div>
+        </div>
+      }
+    >
+      <AdCreationContent />
+    </Suspense>
   );
 };
 

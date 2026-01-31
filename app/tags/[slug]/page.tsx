@@ -41,7 +41,7 @@ async function getTagPosts(slug: string) {
       `${API_URL}/api/posts/?tags__slug=${slug}&status=published`,
       {
         next: { revalidate: 300 },
-      }
+      },
     );
 
     if (!res.ok) {
@@ -81,7 +81,7 @@ export async function generateMetadata({
         `${tag.description} Browse ${tag.posts_count} article${
           tag.posts_count !== 1 ? "s" : ""
         } tagged with ${tag.name}.`,
-        155
+        155,
       )
     : `Explore ${tag.posts_count} article${
         tag.posts_count !== 1 ? "s" : ""
@@ -139,7 +139,8 @@ export async function generateMetadata({
 export async function generateStaticParams() {
   try {
     const res = await fetch(`${API_URL}/api/tags/`);
-    const tags = await res.json();
+    const data = await res.json();
+    const tags = Array.isArray(data) ? data : data.results || [];
 
     return tags.map((tag: any) => ({
       slug: tag.slug,

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
@@ -454,7 +454,7 @@ export const ManageCategories = () => {
 
                           <div className="flex items-center gap-4 text-xs text-neutral-500">
                             <span>Slug: {category.slug}</span>
-                            <span>•</span>
+                            <span>â€¢</span>
                             <span>
                               Created {formatDate(category.created_at)}
                             </span>

@@ -1,9 +1,7 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-
-export const dynamic = 'force-dynamic';
 import Link from "next/link";
 import { postAPI } from "@/api/services";
 import { type Post } from "@/types";
@@ -1339,7 +1337,7 @@ function DashboardContent() {
                                   {newsletter.status === "draft" &&
                                     `Created ${timeAgo(newsletter.created_at)}`}
                                 </span>
-                                <span>•</span>
+                                <span>â€¢</span>
                                 <span>
                                   {newsletter.total_recipients} recipients
                                 </span>
@@ -1504,7 +1502,7 @@ function DashboardContent() {
                                 <span>{timeAgo(subscriber.subscribed_at)}</span>
                                 {subscriber.source && (
                                   <>
-                                    <span>•</span>
+                                    <span>â€¢</span>
                                     <span>from {subscriber.source}</span>
                                   </>
                                 )}
@@ -1682,9 +1680,9 @@ function DashboardContent() {
                                   {getAdTypeIcon(ad.ad_type)}
                                   {ad.ad_type_display}
                                 </span>
-                                <span>•</span>
+                                <span>â€¢</span>
                                 <span>{ad.placement_display}</span>
-                                <span>•</span>
+                                <span>â€¢</span>
                                 <span>Priority: {ad.priority}</span>
                               </div>
 
@@ -2029,12 +2027,12 @@ function DashboardContent() {
                                   <User className="h-3.5 w-3.5" />
                                   {message.name}
                                 </span>
-                                <span>•</span>
+                                <span>â€¢</span>
                                 <span className="flex items-center gap-1">
                                   <Mail className="h-3.5 w-3.5" />
                                   {message.email}
                                 </span>
-                                <span>•</span>
+                                <span>â€¢</span>
                                 <span>{timeAgo(message.created_at)}</span>
                               </div>
                               <p className="text-sm text-neutral-600 font-light line-clamp-2">
@@ -2124,7 +2122,13 @@ function DashboardContent() {
 
 export default function Dashboard() {
   return (
-    <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><div className="animate-spin rounded-full h-12 w-12 border-b-2 border-black"></div></div>}>
+    <Suspense
+      fallback={
+        <div className="min-h-screen flex items-center justify-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-black"></div>
+        </div>
+      }
+    >
       <DashboardContent />
     </Suspense>
   );
