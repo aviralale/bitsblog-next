@@ -9,7 +9,6 @@ export const metadata: Metadata = {
   description:
     "Learn about Ctrl Bits, a technology company dedicated to digital innovation, web development, and modern software solutions.",
 };
-
 export default function AboutPage() {
   return (
     <Suspense fallback={<div className="min-h-screen bg-white" />}>

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from "react";
 
@@ -266,50 +266,50 @@ const Home = () => {
       <div className="min-h-screen bg-white">
         {/* Hero */}
         <div className="border-b border-neutral-200">
-          <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-20 md:py-32 max-w-7xl">
+          <div className="container mx-auto px-6 py-32 max-w-5xl">
             <div className="max-w-3xl">
-              <div className="flex items-center gap-3 mb-6 sm:mb-8">
-                <div className="w-1 h-8 sm:h-10 md:h-12 bg-black"></div>
-                <span className="text-xs sm:text-sm font-medium text-black uppercase tracking-wider">
+              <div className="flex items-center gap-3 mb-8">
+                <div className="w-1 h-12 bg-black"></div>
+                <span className="text-sm font-medium text-black uppercase tracking-wider">
                   BitsBlog by Ctrl Bits
                 </span>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light tracking-tight text-black mb-4 sm:mb-6 md:mb-8 leading-[1.1]">
+              <h1 className="text-6xl md:text-7xl font-light tracking-tight text-black mb-8 leading-[1.1]">
                 Where Technology
                 <br />
                 Meets Insight
               </h1>
 
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-neutral-600 font-light mb-4 sm:mb-6 leading-relaxed">
+              <p className="text-xl md:text-2xl text-neutral-600 font-light mb-6 leading-relaxed">
                 Exploring the intersection of code, design, and innovation. Deep
                 dives into web development, software architecture, and the
                 future of technology.
               </p>
 
-              <p className="text-sm sm:text-base md:text-lg text-neutral-500 font-light mb-8 sm:mb-12 leading-relaxed">
+              <p className="text-lg text-neutral-500 font-light mb-12 leading-relaxed">
                 Built by developers, for developers. Ctrl Bits brings you
-                thoughtful content that matters—no fluff, just bits of knowledge
-                that elevate your craft.
+                thoughtful content that mattersâ€”no fluff, just bits of
+                knowledge that elevate your craft.
               </p>
 
-              <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
+              <div className="flex flex-wrap gap-4">
                 <Button
                   variant="outline"
-                  className="border-black bg-black text-white hover:bg-neutral-800 font-light px-6 sm:px-8 h-11 sm:h-12 rounded-none"
+                  className="border-black bg-black text-white hover:bg-neutral-800 font-light px-8 h-12 rounded-none"
                   onClick={() => router.push("/articles")}
                 >
                   Explore Articles
                 </Button>
                 <Button
                   variant="outline"
-                  className="border-black text-black hover:bg-black hover:text-white font-light px-6 sm:px-8 h-11 sm:h-12 rounded-none transition-all duration-200"
+                  className="border-black text-black hover:bg-black hover:text-white font-light px-8 h-12 rounded-none transition-all duration-200"
                   onClick={() => router.push("/about")}
                 >
                   About Ctrl Bits
                 </Button>
               </div>
-              <div className="mt-8 sm:mt-12 md:mt-16">
+              <div className="mt-16">
                 <NewsletterForm />
               </div>
             </div>
@@ -318,29 +318,29 @@ const Home = () => {
 
         {/* Stats */}
         <div className="border-b border-neutral-200">
-          <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-12 md:py-16 max-w-7xl">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
+          <div className="container mx-auto px-6 py-16 max-w-5xl">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               <div className="text-center">
-                <div className="text-2xl sm:text-3xl md:text-4xl font-light text-black mb-2">
+                <div className="text-4xl font-light text-black mb-2">
                   {posts.length}+
                 </div>
-                <div className="text-xs sm:text-sm text-neutral-500 uppercase tracking-wider">
+                <div className="text-sm text-neutral-500 uppercase tracking-wider">
                   Articles
                 </div>
               </div>
               <div className="text-center">
-                <div className="text-2xl sm:text-3xl md:text-4xl font-light text-black mb-2">
+                <div className="text-4xl font-light text-black mb-2">
                   {Math.floor(
                     posts.reduce((sum, post) => sum + post.views, 0) / 1000,
                   )}
                   K+
                 </div>
-                <div className="text-xs sm:text-sm text-neutral-500 uppercase tracking-wider">
+                <div className="text-sm text-neutral-500 uppercase tracking-wider">
                   Readers
                 </div>
               </div>
               <div className="text-center">
-                <div className="text-2xl sm:text-3xl md:text-4xl font-light text-black mb-2">
+                <div className="text-4xl font-light text-black mb-2">
                   {
                     new Set(
                       posts.map((post) => post.category?.name).filter(Boolean),
@@ -348,15 +348,15 @@ const Home = () => {
                   }
                   +
                 </div>
-                <div className="text-xs sm:text-sm text-neutral-500 uppercase tracking-wider">
+                <div className="text-sm text-neutral-500 uppercase tracking-wider">
                   Categories
                 </div>
               </div>
               <div className="text-center">
-                <div className="text-2xl sm:text-3xl md:text-4xl font-light text-black mb-2">
+                <div className="text-4xl font-light text-black mb-2">
                   {posts.reduce((sum, post) => sum + post.comments_count, 0)}+
                 </div>
-                <div className="text-xs sm:text-sm text-neutral-500 uppercase tracking-wider">
+                <div className="text-sm text-neutral-500 uppercase tracking-wider">
                   Comments
                 </div>
               </div>
@@ -367,20 +367,20 @@ const Home = () => {
         {/* Featured Post */}
         {posts.length > 0 && (
           <div className="border-b border-neutral-200">
-            <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-12 md:py-16 max-w-7xl">
-              <div className="flex items-center gap-3 mb-8 sm:mb-12">
-                <div className="w-1 h-6 sm:h-8 bg-black"></div>
-                <span className="text-xs sm:text-sm font-medium text-black uppercase tracking-wider">
+            <div className="container mx-auto px-6 py-16 max-w-5xl">
+              <div className="flex items-center gap-3 mb-12">
+                <div className="w-1 h-8 bg-black"></div>
+                <span className="text-sm font-medium text-black uppercase tracking-wider">
                   Featured
                 </span>
               </div>
 
               <Link
                 href={`/post/${posts[0].slug}`}
-                className="group grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center"
+                className="group grid md:grid-cols-2 gap-12 items-center"
               >
                 {posts[0].featured_image && (
-                  <div className="overflow-hidden bg-neutral-100 aspect-4/3 order-2 md:order-1">
+                  <div className="overflow-hidden bg-neutral-100 aspect-4/3">
                     <img
                       src={posts[0].featured_image}
                       alt={posts[0].title}
@@ -389,28 +389,28 @@ const Home = () => {
                   </div>
                 )}
 
-                <div className="order-1 md:order-2">
-                  <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4 flex-wrap">
+                <div>
+                  <div className="flex items-center gap-3 mb-4">
                     {posts[0].category && (
                       <span className="text-xs font-medium text-black uppercase tracking-wider">
                         {posts[0].category.name}
                       </span>
                     )}
-                    <span className="text-xs text-neutral-400">•</span>
+                    <span className="text-xs text-neutral-400">â€¢</span>
                     <span className="text-xs text-neutral-500">
                       {formatDate(posts[0].created_at)}
                     </span>
                   </div>
 
-                  <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-black mb-4 sm:mb-6 leading-tight group-hover:text-neutral-700 transition-colors">
+                  <h2 className="text-4xl md:text-5xl font-light text-black mb-6 leading-tight group-hover:text-neutral-700 transition-colors">
                     {posts[0].title}
                   </h2>
 
-                  <p className="text-sm sm:text-base md:text-lg text-neutral-600 font-light mb-6 leading-relaxed">
+                  <p className="text-lg text-neutral-600 font-light mb-6 leading-relaxed">
                     {posts[0].excerpt || posts[0].content.substring(0, 250)}...
                   </p>
 
-                  <div className="flex items-center gap-2 text-xs sm:text-sm text-black font-medium">
+                  <div className="flex items-center gap-2 text-sm text-black font-medium">
                     <span>Read Article</span>
                     <ArrowUpRight className="h-4 w-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-200" />
                   </div>
@@ -421,10 +421,10 @@ const Home = () => {
         )}
 
         {/* Posts Grid */}
-        <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-12 md:py-16 max-w-7xl">
-          <div className="flex items-center gap-3 mb-8 sm:mb-12">
-            <div className="w-1 h-6 sm:h-8 bg-black"></div>
-            <span className="text-xs sm:text-sm font-medium text-black uppercase tracking-wider">
+        <div className="container mx-auto px-6 py-16 max-w-5xl">
+          <div className="flex items-center gap-3 mb-12">
+            <div className="w-1 h-8 bg-black"></div>
+            <span className="text-sm font-medium text-black uppercase tracking-wider">
               All Posts
             </span>
           </div>
@@ -436,10 +436,10 @@ const Home = () => {
                 href={`/post/${post.slug}`}
                 className="group block border-b border-neutral-200 last:border-b-0 hover:bg-neutral-50 transition-colors duration-200"
               >
-                <div className="py-6 sm:py-8 md:py-10 flex flex-col md:flex-row gap-4 sm:gap-6 md:gap-8 items-start">
+                <div className="py-10 flex gap-8 items-start">
                   {/* Image */}
                   {post.featured_image && (
-                    <div className="w-full sm:w-48 h-40 sm:h-48 shrink-0 overflow-hidden bg-neutral-100 rounded-sm md:rounded-none">
+                    <div className="hidden md:block w-48 h-48 shrink-0 overflow-hidden bg-neutral-100">
                       <img
                         src={post.featured_image}
                         alt={post.title}
@@ -450,30 +450,30 @@ const Home = () => {
 
                   {/* Content */}
                   <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3 flex-wrap">
+                    <div className="flex items-center gap-3 mb-3">
                       {post.category && (
                         <span className="text-xs font-medium text-black uppercase tracking-wider">
                           {post.category.name}
                         </span>
                       )}
-                      <span className="text-xs text-neutral-400">•</span>
+                      <span className="text-xs text-neutral-400">â€¢</span>
                       <span className="text-xs text-neutral-500">
                         {formatDate(post.created_at)}
                       </span>
                     </div>
 
-                    <h2 className="text-lg sm:text-2xl md:text-3xl font-light text-black mb-3 leading-snug group-hover:text-neutral-700 transition-colors">
+                    <h2 className="text-3xl font-light text-black mb-3 leading-snug group-hover:text-neutral-700 transition-colors">
                       {post.title}
                     </h2>
 
-                    <p className="text-sm sm:text-base text-neutral-600 font-light line-clamp-2 sm:line-clamp-3 mb-4 leading-relaxed">
+                    <p className="text-neutral-600 font-light line-clamp-3 mb-4 leading-relaxed">
                       {post.excerpt || post.content.substring(0, 200)}...
                     </p>
 
                     {/* Tags */}
                     {post.tags.length > 0 && (
                       <div className="flex flex-wrap gap-2 mb-4">
-                        {post.tags.slice(0, 3).map((tag) => (
+                        {post.tags.slice(0, 4).map((tag) => (
                           <span
                             key={tag.id}
                             className="text-xs text-neutral-500 border border-neutral-300 px-2 py-1 hover:border-black hover:text-black transition-colors"
@@ -485,7 +485,7 @@ const Home = () => {
                     )}
 
                     {/* meta */}
-                    <div className="flex items-center gap-4 sm:gap-6 text-xs text-neutral-500 flex-wrap">
+                    <div className="flex items-center gap-6 text-xs text-neutral-500">
                       <div className="flex items-center gap-2">
                         <User className="h-3.5 w-3.5" />
                         <span>{post.author.username}</span>
@@ -511,17 +511,17 @@ const Home = () => {
           </div>
 
           {/* Newsletter CTA */}
-          <div className="mt-12 sm:mt-16 md:mt-20 pt-12 sm:pt-16 border-t border-neutral-200">
+          <div className="mt-20 pt-16 border-t border-neutral-200">
             <NewsletterForm variant="modal" />
           </div>
 
           {/* Load More */}
           {hasMore && (
-            <div className="flex justify-center mt-12 sm:mt-16 pt-8 border-t border-neutral-200">
+            <div className="flex justify-center mt-16 pt-8 border-t border-neutral-200">
               <Button
                 onClick={() => setPage((p) => p + 1)}
                 variant="outline"
-                className="border-black text-black hover:bg-black hover:text-white font-light px-6 sm:px-8 h-11 sm:h-12 rounded-none transition-all duration-200"
+                className="border-black text-black hover:bg-black hover:text-white font-light px-8 h-12 rounded-none transition-all duration-200"
                 disabled={loading}
               >
                 {loading ? "Loading..." : "Load More"}
@@ -532,26 +532,26 @@ const Home = () => {
 
         {/* Bottom CTA */}
         <div className="border-t border-neutral-200 bg-neutral-50">
-          <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-20 max-w-7xl">
+          <div className="container mx-auto px-6 py-20 max-w-5xl">
             <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-black mb-4 sm:mb-6 leading-tight">
+              <h2 className="text-4xl md:text-5xl font-light text-black mb-6 leading-tight">
                 Ready to dive deeper?
               </h2>
-              <p className="text-sm sm:text-base md:text-lg text-neutral-600 font-light mb-8 leading-relaxed">
+              <p className="text-lg text-neutral-600 font-light mb-8 leading-relaxed">
                 Explore our archive of articles, tutorials, and insights across
                 various topics
               </p>
-              <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 justify-center">
+              <div className="flex flex-wrap gap-4 justify-center">
                 <Button
                   variant="outline"
-                  className="border-black bg-black text-white hover:bg-neutral-800 font-light px-6 sm:px-8 h-11 sm:h-12 rounded-none"
+                  className="border-black bg-black text-white hover:bg-neutral-800 font-light px-8 h-12 rounded-none"
                   onClick={() => router.push("/categories")}
                 >
                   Browse All Categories
                 </Button>
                 <Button
                   variant="outline"
-                  className="border-black text-black hover:bg-black hover:text-white font-light px-6 sm:px-8 h-11 sm:h-12 rounded-none transition-all duration-200"
+                  className="border-black text-black hover:bg-black hover:text-white font-light px-8 h-12 rounded-none transition-all duration-200"
                   onClick={() => router.push("/archives")}
                 >
                   View Archive
