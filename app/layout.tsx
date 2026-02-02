@@ -17,6 +17,7 @@ const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   preload: true,
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 const spaceGrotesk = Space_Grotesk({
@@ -24,6 +25,7 @@ const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   display: "swap",
   preload: true,
+  weight: ["400", "500", "600", "700"],
 });
 
 const SITE_URL =
