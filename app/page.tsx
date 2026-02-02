@@ -61,13 +61,13 @@ const Home = () => {
   };
 
   // SEO Data
-  const pageTitle = "BitsBlog - Technology Insights by Ctrl Bits";
+  const pageTitle = "BitsBlog - Nepal's Premier Tech Blog & Best Blogs Directory | Ctrl Bits";
   const pageDescription =
-    "Explore the intersection of code, design, and innovation. Deep dives into web development, software architecture, AI, and the future of technology. Built by developers, for developers.";
+    "Nepal's leading technology blog and blog directory. Discover the best blogs in Nepal, expert web development tutorials, software architecture insights, AI/ML guides, and trusted programming content. Built by experienced developers in Nepal's tech community.";
   const pageUrl = getAbsoluteUrl("/");
   const ogImage = getAbsoluteUrl("/og-home.jpg");
   const keywords =
-    "tech blog, web development, software engineering, AI, machine learning, React, Django, programming tutorials, software architecture, technology insights";
+  const keywords = "BitsBlog, bit blogs, best blogs Nepal, Nepal tech blog, technology blog Nepal, web development Nepal, software engineering blog, programming tutorials Nepal, React tutorials, Django Python, Next.js guides, AI machine learning Nepal, Nepali tech community, expert tech insights, trusted technology blog, Ctrl Bits, full-stack development, software architecture Nepal, Nepal blog directory, bit blogs Nepal";
 
   // Organization structured data
   const organizationSchema = {
@@ -77,13 +77,28 @@ const Home = () => {
     url: getAbsoluteUrl("/"),
     logo: getAbsoluteUrl("/logo.png"),
     description:
-      "Digital innovation and web development company specializing in modern web applications, AI solutions, and software architecture.",
+      "Digital innovation and web development company specializing in modern web applications, AI solutions, and software architecture in Nepal. Empowering Nepal's tech ecosystem through expert content and community building.",
+    foundingDate: "2020",
+    foundingLocation: {
+      "@type": "Place",
+      address: {
+        "@type": "PostalAddress",
+        addressCountry: "NP",
+        addressLocality: "Kathmandu"
+      }
+    },
     sameAs: [
       "https://facebook.com/ctrlbits",
-      "https://twitter.com/ctrlbits",
+      "https://twitter.com/ctrl_bits",
       "https://linkedin.com/company/ctrlbits",
       "https://github.com/ctrlbits",
     ],
+    contactPoint: {
+      "@type": "ContactPoint",
+      email: "hi@ctrlbits.com",
+      contactType: "Customer Service",
+      availableLanguage: ["English", "Nepali"]
+    }
   };
 
   // Website structured data

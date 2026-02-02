@@ -275,30 +275,30 @@ const ArchivesPage = () => {
     ? selectedMonth
       ? `Archives - ${
           availableMonths.find((m) => m.month === selectedMonth)?.month_name
-        } ${selectedYear} | BitsBlog`
-      : `Archives - ${selectedYear} | BitsBlog`
-    : "Blog Archives | BitsBlog";
+        } ${selectedYear} | BitsBlog Nepal`
+      : `Archives - ${selectedYear} Technology Articles | BitsBlog Nepal`
+    : "Blog Archives - Complete Historical Content | BitsBlog Nepal";
 
   const pageDescription = selectedYear
     ? selectedMonth
-      ? `Explore all ${totalPosts} articles published in ${
+      ? `Explore all ${totalPosts} technology articles published in ${
           availableMonths.find((m) => m.month === selectedMonth)?.month_name
-        } ${selectedYear}. Browse technology insights, tutorials, and updates.`
-      : `Explore all ${totalPosts} articles published in ${selectedYear}. Browse our technology content organized by month.`
-    : `Browse BitsBlog's complete archive of ${totalPosts} technology articles organized chronologically. Explore content from ${
+        } ${selectedYear}. Browse expert web development tutorials, AI guides, programming insights, and software architecture content from Nepal's leading tech blog.`
+      : `Explore all ${totalPosts} expert articles published in ${selectedYear}. Browse our technology content organized by month, covering web development, AI/ML, software engineering, and programming from Nepal.`
+    : `Browse BitsBlog's complete archive of ${totalPosts} technology articles organized chronologically. Explore historical content from ${
         allAvailableYears.length > 0
           ? `${allAvailableYears[allAvailableYears.length - 1]} to ${
               allAvailableYears[0]
             }`
           : "all years"
-      }.`;
+      } covering web development, AI, programming, and software engineering from Nepal's trusted tech community.`;
 
   const pageUrl = getAbsoluteUrl("/archives");
   const ogImage = getAbsoluteUrl("/og-archives.jpg");
 
   const keywords = selectedYear
-    ? `blog archives ${selectedYear}, ${selectedYear} articles, tech posts ${selectedYear}, blog history`
-    : "blog archives, article history, chronological posts, tech blog timeline, all articles";
+    ? `blog archives ${selectedYear}, ${selectedYear} tech articles Nepal, tech posts ${selectedYear}, blog history, historical content, past articles, Nepal technology blog ${selectedYear}`
+    : "blog archives Nepal, article history, chronological posts, tech blog timeline, all articles, historical content, past tech articles, Nepal blog archives, web development history, programming archives";
 
   // Breadcrumb structured data
   const breadcrumbSchema = {

@@ -1,8 +1,103 @@
+"use client";
 import { Shield, Eye, Lock, Database, Cookie, Mail } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import Head from "next/head";
+
+// Helper function to get absolute URL
+const getAbsoluteUrl = (path: string): string => {
+  if (path.startsWith("http://") || path.startsWith("https://")) {
+    return path;
+  }
+  const base =
+    typeof window !== "undefined"
+      ? `${window.location.protocol}//${window.location.host}`
+      : "";
+  const normalizedPath = path.startsWith("/") ? path : `/${path}`;
+  return `${base}${normalizedPath}`;
+};
 
 export const PrivacyPolicy = () => {
+  // SEO Data
+  const pageTitle = "Privacy Policy - Data Protection & User Privacy | BitsBlog Nepal";
+  const pageDescription =
+    "Read BitsBlog Nepal's privacy policy. Learn how we collect, use, protect your personal data, and safeguard user privacy. Transparent data practices for Nepal's tech community. GDPR compliant.";
+  const pageUrl = getAbsoluteUrl("/privacy");
+  const keywords =
+    "privacy policy, data protection Nepal, user privacy, personal information, GDPR compliance, data security, privacy rights, BitsBlog privacy, data collection Nepal, user data protection, privacy transparency";
+
+  // WebPage structured data
+  const webPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Privacy Policy",
+    description: pageDescription,
+    url: pageUrl,
+    publisher: {
+      "@type": "Organization",
+      name: "Ctrl Bits",
+      logo: {
+        "@type": "ImageObject",
+        url: getAbsoluteUrl("/logo.png"),
+      },
+    },
+  };
+
+  // Breadcrumb structured data
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: getAbsoluteUrl("/"),
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Privacy Policy",
+        item: pageUrl,
+      },
+    ],
+  };
+
   return (
+    <>
+      <Head>
+        {/* Basic Meta Tags */}
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <meta name="keywords" content={keywords} />
+        <meta name="robots" content="index, follow" />
+
+        {/* Canonical Link */}
+        <link rel="canonical" href={pageUrl} />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:url" content={pageUrl} />
+        <meta property="og:site_name" content="BitsBlog" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDescription} />
+        <meta name="twitter:site" content="@ctrl_bits" />
+
+        {/* Structured Data - WebPage */}
+        <script type="application/ld+json">
+          {JSON.stringify(webPageSchema)}
+        </script>
+
+        {/* Structured Data - Breadcrumb */}
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbSchema)}
+        </script>
+      </Head>
+
     <div className="min-h-screen bg-white">
       {/* Header */}
       <div className="border-b border-neutral-200">
@@ -403,6 +498,7 @@ export const PrivacyPolicy = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

@@ -88,8 +88,8 @@ const CategoriesPage = () => {
 
   // SEO Data
   const pageTitle = searchTerm
-    ? `Search: "${searchTerm}" in Categories | BitsBlog`
-    : "Browse All Categories | BitsBlog";
+    ? `Search: "${searchTerm}" in Categories | BitsBlog Nepal`
+    : "Browse All Tech Categories - Web Development, AI, Programming | BitsBlog Nepal";
 
   const pageDescription = searchTerm
     ? `Search results for "${searchTerm}" in categories. Found ${
@@ -97,9 +97,9 @@ const CategoriesPage = () => {
       } matching ${
         filteredCategories.length === 1 ? "category" : "categories"
       }.`
-    : `Browse articles by category. Explore ${categories.length} topic ${
+    : `Browse technology articles by category. Explore ${categories.length} topic ${
         categories.length === 1 ? "category" : "categories"
-      } covering web development, AI, software engineering, and more with ${totalPosts} total articles.`;
+      } covering web development, AI/ML, software engineering, programming tutorials, React, Django, and more from Nepal's leading tech blog. ${totalPosts} total expert articles.`;
 
   const pageUrl = getAbsoluteUrl("/categories");
   const ogImage = getAbsoluteUrl("/og-categories.jpg");
@@ -112,8 +112,8 @@ const CategoriesPage = () => {
     .join(", ");
 
   const keywords = searchTerm
-    ? `${searchTerm}, blog categories, article topics, ${topCategories}`
-    : `blog categories, article topics, tech categories, ${topCategories}, web development, AI, programming`;
+    ? `${searchTerm}, blog categories Nepal, bit blogs, article topics, tech categories, ${topCategories}`
+    : `blog categories, bit blogs, tech categories Nepal, article topics, programming categories Nepal, web development topics, AI categories, software engineering, technology topics Nepal, ${topCategories}, web development, AI, programming tutorials, React, Django, Next.js, Python, JavaScript, bit blogs categories`;
 
   // Breadcrumb structured data
   const breadcrumbSchema = {

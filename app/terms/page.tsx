@@ -1,3 +1,4 @@
+"use client";
 import {
   FileText,
   Scale,
@@ -7,9 +8,103 @@ import {
   UserCheck,
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import Head from "next/head";
+
+// Helper function to get absolute URL
+const getAbsoluteUrl = (path: string): string => {
+  if (path.startsWith("http://") || path.startsWith("https://")) {
+    return path;
+  }
+  const base =
+    typeof window !== "undefined"
+      ? `${window.location.protocol}//${window.location.host}`
+      : "";
+  const normalizedPath = path.startsWith("/") ? path : `/${path}`;
+  return `${base}${normalizedPath}`;
+};
 
 export const TermsOfService = () => {
+  // SEO Data
+  const pageTitle = "Terms of Service - Usage Policy & Guidelines | BitsBlog Nepal";
+  const pageDescription =
+    "Read BitsBlog Nepal's terms of service and usage policy. Understand your rights, responsibilities, content guidelines, and acceptable use when using our technology blog platform.";
+  const pageUrl = getAbsoluteUrl("/terms");
+  const keywords =
+    "terms of service, usage policy, user agreement, acceptable use, terms and conditions, service guidelines, BitsBlog terms, usage rules Nepal, content policy, legal terms";
+
+  // WebPage structured data
+  const webPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Terms of Service",
+    description: pageDescription,
+    url: pageUrl,
+    publisher: {
+      "@type": "Organization",
+      name: "Ctrl Bits",
+      logo: {
+        "@type": "ImageObject",
+        url: getAbsoluteUrl("/logo.png"),
+      },
+    },
+  };
+
+  // Breadcrumb structured data
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: getAbsoluteUrl("/"),
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Terms of Service",
+        item: pageUrl,
+      },
+    ],
+  };
+
   return (
+    <>
+      <Head>
+        {/* Basic Meta Tags */}
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <meta name="keywords" content={keywords} />
+        <meta name="robots" content="index, follow" />
+
+        {/* Canonical Link */}
+        <link rel="canonical" href={pageUrl} />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:url" content={pageUrl} />
+        <meta property="og:site_name" content="BitsBlog" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDescription} />
+        <meta name="twitter:site" content="@ctrl_bits" />
+
+        {/* Structured Data - WebPage */}
+        <script type="application/ld+json">
+          {JSON.stringify(webPageSchema)}
+        </script>
+
+        {/* Structured Data - Breadcrumb */}
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbSchema)}
+        </script>
+      </Head>
+
     <div className="min-h-screen bg-white">
       {/* Header */}
       <div className="border-b border-neutral-200">
@@ -476,6 +571,7 @@ export const TermsOfService = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

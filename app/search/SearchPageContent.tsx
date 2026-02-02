@@ -248,47 +248,56 @@ export default function SearchPageContent() {
 
     let title = "Search";
     let description =
-      "Search through our collection of technology articles, tutorials, and insights.";
+      "Search through our collection of expert technology articles, tutorials, web development guides, AI insights, and programming content from Nepal's leading tech blog.";
 
     if (hasSearched) {
       if (searchQuery) {
-        title = `Search: "${searchQuery}"`;
-        description = `Search results for "${searchQuery}" on BitsBlog. Found ${
+        title = `Search: "${searchQuery}" | BitsBlog Nepal`;
+        description = `Search results for "${searchQuery}" on BitsBlog Nepal. Found ${
           posts.length
-        } article${posts.length !== 1 ? "s" : ""} matching your query.`;
+        } expert article${posts.length !== 1 ? "s" : ""} matching your query on web development, AI/ML, programming, and software engineering.`;
       } else if (categoryName && tagName) {
-        title = `${categoryName} - ${tagName} Articles`;
-        description = `Browse ${posts.length} article${
+        title = `${categoryName} - ${tagName} Articles | BitsBlog Nepal`;
+        description = `Browse ${posts.length} expert article${
           posts.length !== 1 ? "s" : ""
-        } in ${categoryName} category tagged with ${tagName}.`;
+        } in ${categoryName} category tagged with ${tagName} from Nepal's trusted tech blog.`;
       } else if (categoryName) {
-        title = `${categoryName} Articles`;
-        description = `Explore ${posts.length} article${
+        title = `${categoryName} Articles | BitsBlog Nepal`;
+        description = `Explore ${posts.length} expert article${
           posts.length !== 1 ? "s" : ""
-        } in ${categoryName} category.`;
+        } in ${categoryName} category covering web development, programming, and technology.`;
       } else if (tagName) {
-        title = `${tagName} Articles`;
-        description = `Discover ${posts.length} article${
+        title = `${tagName} Articles | BitsBlog Nepal`;
+        description = `Discover ${posts.length} expert article${
           posts.length !== 1 ? "s" : ""
-        } tagged with ${tagName}.`;
+        } tagged with ${tagName} on BitsBlog Nepal.`;
       } else {
-        title = "All Articles";
-        description = `Browse ${posts.length} published article${
+        title = "All Technology Articles | BitsBlog Nepal";
+        description = `Browse ${posts.length} published expert article${
           posts.length !== 1 ? "s" : ""
-        } on BitsBlog.`;
+        } on BitsBlog Nepal covering web development, AI, programming, and software engineering.`;
       }
     }
 
-    title += " | BitsBlog";
+    if (!hasSearched) {
+      title = "Search Technology Articles - Find Tech Tutorials & Guides | BitsBlog Nepal";
+    }
 
     const keywords = [
-      "search",
-      "find articles",
+      "search tech articles Nepal",
+      "bit blogs",
+      "find blog posts",
+      "search technology content",
       searchQuery,
       categoryName,
       tagName,
-      "tech blog",
-      "programming tutorials",
+      "tech blog search",
+      "bit blogs search",
+      "programming tutorials search",
+      "web development articles",
+      "AI guides Nepal",
+      "find tutorials",
+      "search programming content"
     ]
       .filter(Boolean)
       .join(", ");

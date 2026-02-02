@@ -28,7 +28,6 @@ import {
 import { Button } from "@/components/ui/button";
 import Head from "next/head";
 import Link from "next/link";
-
 interface DocSection {
   id: string;
   title: string;

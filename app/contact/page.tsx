@@ -154,13 +154,13 @@ export const Contact = () => {
   };
 
   // SEO Data
-  const pageTitle = "Contact Us | BitsBlog";
+  const pageTitle = "Contact BitsBlog - Customer Support & Partnership Inquiries Nepal | Ctrl Bits";
   const pageDescription =
-    "Get in touch with the BitsBlog team. We're here to help with questions, feedback, bug reports, and partnership inquiries. Contact us today.";
+    "Contact BitsBlog and Ctrl Bits team in Kathmandu, Nepal. Get expert support, report issues, share feedback, or explore partnership opportunities. We're here to help Nepal's tech community. Responsive customer support in English and Nepali.";
   const pageUrl = getAbsoluteUrl("/contact");
   const ogImage = getAbsoluteUrl("/og-contact.jpg");
   const keywords =
-    "contact BitsBlog, customer support, feedback, bug report, partnership inquiry, contact form, get in touch";
+    "contact BitsBlog, bit blogs, customer support Nepal, tech blog contact, feedback BitsBlog, bug report, partnership inquiry Nepal, contact Ctrl Bits, get in touch Nepal, customer service Kathmandu, technology support Nepal, collaboration opportunities, partnership opportunities Nepal, Nepal tech community support, contact form, email support, bit blogs contact";
 
   // Breadcrumb structured data
   const breadcrumbSchema = {
@@ -197,12 +197,19 @@ export const Contact = () => {
         "@type": "ImageObject",
         url: getAbsoluteUrl("/logo.png"),
       },
+      address: {
+        "@type": "PostalAddress",
+        addressCountry: "NP",
+        addressRegion: "Bagmati Province",
+        addressLocality: "Kathmandu"
+      },
       contactPoint: {
         "@type": "ContactPoint",
         telephone: "+977-9709659012",
         contactType: "customer support",
         email: "hi@ctrlbits.com",
-        availableLanguage: ["English"],
+        availableLanguage: ["English", "Nepali"],
+        areaServed: "NP"
       },
       sameAs: [
         "https://x.com/ctrl_bits",

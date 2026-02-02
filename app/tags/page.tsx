@@ -76,16 +76,16 @@ const TagsPage = () => {
 
   // SEO Data
   const pageTitle = searchTerm
-    ? `Search: "${searchTerm}" in Tags | BitsBlog`
-    : "Browse All Tags | BitsBlog";
+    ? `Search: "${searchTerm}" in Tags | BitsBlog Nepal`
+    : "Browse All Technology Tags - Programming, AI, Web Development | BitsBlog Nepal";
 
   const pageDescription = searchTerm
     ? `Search results for "${searchTerm}" in tags. Found ${
         filteredTags.length
       } matching ${filteredTags.length === 1 ? "tag" : "tags"}.`
-    : `Browse articles by tags. Explore ${tags.length} topic ${
+    : `Browse technology articles by tags. Explore ${tags.length} topic ${
         tags.length === 1 ? "tag" : "tags"
-      } covering web development, AI, software engineering, and more with ${totalPosts} total articles.`;
+      } covering web development, AI/ML, software engineering, programming languages, frameworks, and more from Nepal's leading tech blog. ${totalPosts} total expert articles.`;
 
   const pageUrl = getAbsoluteUrl("/tags");
   const ogImage = getAbsoluteUrl("/og-tags.jpg");
@@ -98,8 +98,8 @@ const TagsPage = () => {
     .join(", ");
 
   const keywords = searchTerm
-    ? `${searchTerm}, blog tags, article topics, ${topTags}`
-    : `blog tags, article topics, tech tags, ${topTags}, web development, AI, programming`;
+    ? `${searchTerm}, blog tags Nepal, bit blogs, article topics, technology tags, ${topTags}`
+    : `blog tags, bit blogs, technology tags Nepal, article topics, programming tags, web development topics, AI tags, software topics Nepal, tech keywords, ${topTags}, web development, AI, programming, React, Django, Python, JavaScript, TypeScript, Next.js, bit blogs tags`;
 
   // Breadcrumb structured data
   const breadcrumbSchema = {
