@@ -61,13 +61,14 @@ const Home = () => {
   };
 
   // SEO Data
-  const pageTitle = "BitsBlog - Nepal's Premier Tech Blog & Best Blogs Directory | Ctrl Bits";
+  const pageTitle =
+    "BitsBlog - Nepal's Premier Tech Blog & Best Blogs Directory | Ctrl Bits";
   const pageDescription =
     "Nepal's leading technology blog and blog directory. Discover the best blogs in Nepal, expert web development tutorials, software architecture insights, AI/ML guides, and trusted programming content. Built by experienced developers in Nepal's tech community.";
   const pageUrl = getAbsoluteUrl("/");
   const ogImage = getAbsoluteUrl("/og-home.jpg");
   const keywords =
-  const keywords = "BitsBlog, bit blogs, best blogs Nepal, Nepal tech blog, technology blog Nepal, web development Nepal, software engineering blog, programming tutorials Nepal, React tutorials, Django Python, Next.js guides, AI machine learning Nepal, Nepali tech community, expert tech insights, trusted technology blog, Ctrl Bits, full-stack development, software architecture Nepal, Nepal blog directory, bit blogs Nepal";
+    "BitsBlog, bit blogs, best blogs Nepal, Nepal tech blog, technology blog Nepal, web development Nepal, software engineering blog, programming tutorials Nepal, React tutorials, Django Python, Next.js guides, AI machine learning Nepal, Nepali tech community, expert tech insights, trusted technology blog, Ctrl Bits, full-stack development, software architecture Nepal, Nepal blog directory, bit blogs Nepal";
 
   // Organization structured data
   const organizationSchema = {
@@ -84,8 +85,8 @@ const Home = () => {
       address: {
         "@type": "PostalAddress",
         addressCountry: "NP",
-        addressLocality: "Kathmandu"
-      }
+        addressLocality: "Kathmandu",
+      },
     },
     sameAs: [
       "https://facebook.com/ctrlbits",
@@ -97,8 +98,8 @@ const Home = () => {
       "@type": "ContactPoint",
       email: "hi@ctrlbits.com",
       contactType: "Customer Service",
-      availableLanguage: ["English", "Nepali"]
-    }
+      availableLanguage: ["English", "Nepali"],
+    },
   };
 
   // Website structured data
