@@ -1,4 +1,5 @@
-"use client";
+﻿"use client";
+
 import { useState } from "react";
 import {
   Book,
@@ -306,13 +307,13 @@ export const Documentation = () => {
               article.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
               article.description
                 .toLowerCase()
-                .includes(searchQuery.toLowerCase())
+                .includes(searchQuery.toLowerCase()),
           )
           .map((article) => ({
             ...article,
             section: section.title,
             sectionId: section.id,
-          }))
+          })),
       )
     : [];
 

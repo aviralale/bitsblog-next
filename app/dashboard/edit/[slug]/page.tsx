@@ -1,5 +1,7 @@
 "use client";
 
+export const dynamic = "force-dynamic";
+
 import { useState, useEffect } from "react";
 import { useRouter, useParams } from "next/navigation";
 import { postAPI, categoryAPI, tagAPI } from "@/api/services";
@@ -9,6 +11,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import SearchableTagsInput from "@/components/SearchableTagsInput";
 import {
   Select,
   SelectContent,
@@ -264,15 +267,6 @@ export default function EditPostPage() {
     } finally {
       setLoading(false);
     }
-  };
-
-  const toggleTag = (tagId: number) => {
-    setFormData((prev) => ({
-      ...prev,
-      tag_ids: prev.tag_ids.includes(tagId)
-        ? prev.tag_ids.filter((id) => id !== tagId)
-        : [...prev.tag_ids, tagId],
-    }));
   };
 
   /**
@@ -775,29 +769,28 @@ export default function EditPostPage() {
                     <Label className="text-sm font-medium text-black uppercase tracking-wider">
                       Tags
                     </Label>
-                    <div className="flex flex-wrap gap-2">
-                      {tags.length > 0 ? (
-                        tags.map((tag) => (
-                          <button
-                            key={tag.id}
-                            type="button"
-                            onClick={() => toggleTag(tag.id)}
-                            className={`px-4 py-2 text-sm font-light transition-all border ${
-                              formData.tag_ids.includes(tag.id)
-                                ? "bg-black text-white border-black"
-                                : "bg-white text-neutral-600 border-neutral-300 hover:border-black hover:text-black"
-                            }`}
-                          >
-                            {tag.name}
-                          </button>
-                        ))
-                      ) : (
-                        <p className="text-sm text-neutral-500 font-light">
-                          No tags available. Create tags in the admin panel
-                          first.
-                        </p>
-                      )}
-                    </div>
+                    <SearchableTagsInput
+                      selectedTags={formData.tag_ids}
+                      onTagsChange={(tagIds) =>
+                        setFormData({ ...formData, tag_ids: tagIds })
+                      }
+                      onSearch={async (query) => {
+                        try {
+                          const response = await tagAPI.search(query);
+                          const rawData: any = response.data;
+                          // Handle different response formats from the API
+                          const tagsArray: Tag[] = Array.isArray(rawData)
+                            ? rawData
+                            : (rawData && (rawData.results ?? rawData.items)) ||
+                              [];
+                          return tagsArray;
+                        } catch (error) {
+                          console.error("Failed to search tags:", error);
+                          return [];
+                        }
+                      }}
+                      placeholder="Search and select tags..."
+                    />
                   </div>
                 </div>
               </CardContent>

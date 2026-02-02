@@ -210,7 +210,7 @@ export const AdComponent = ({
 
   const loadImageAsBlob = async (
     url: string,
-    setBlobFn: (blob: string) => void
+    setBlobFn: (blob: string) => void,
   ) => {
     try {
       const response = await fetch(url);
@@ -331,7 +331,7 @@ export const AdComponent = ({
             }
           });
         },
-        { threshold: impressionThreshold, rootMargin }
+        { threshold: impressionThreshold, rootMargin },
       );
 
       observer.observe(adRef.current);
@@ -380,10 +380,13 @@ export const AdComponent = ({
       onAdError?.(errorMessage);
 
       if (retryCount < maxRetries) {
-        setTimeout(() => {
-          setRetryCount(retryCount + 1);
-          loadAd();
-        }, 1000 * (retryCount + 1));
+        setTimeout(
+          () => {
+            setRetryCount(retryCount + 1);
+            loadAd();
+          },
+          1000 * (retryCount + 1),
+        );
       }
     } finally {
       setLoading(false);
@@ -469,7 +472,7 @@ export const AdComponent = ({
     if (videoRef.current) {
       videoRef.current.currentTime = Math.max(
         0,
-        Math.min(duration, currentTime + seconds)
+        Math.min(duration, currentTime + seconds),
       );
     }
   };
@@ -617,7 +620,7 @@ export const AdComponent = ({
           )}
 
           {ad.cta_text && (
-            <div className="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black/80 to-transparent p-4">
+            <div className="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black/80 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
               <div className="flex items-center justify-between">
                 <span className="text-white font-light">{ad.cta_text}</span>
                 <ExternalLink className="h-4 w-4 text-white" />
@@ -687,7 +690,7 @@ export const AdComponent = ({
                 </div>
               </div>
               {ad.cta_text && (
-                <div className="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black/80 to-transparent p-4">
+                <div className="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black/80 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
                   <span className="text-white font-light text-lg">
                     {ad.cta_text}
                   </span>
@@ -881,7 +884,7 @@ export const AdComponent = ({
 
                   {/* CTA Button */}
                   {ad.cta_text && (
-                    <div className="px-4 pb-3">
+                    <div className="px-4 pb-3 opacity-0 group-hover:opacity-100 transition-opacity">
                       <a
                         href={ad.link_url}
                         target={ad.open_in_new_tab ? "_blank" : "_self"}
@@ -938,12 +941,34 @@ export const AdComponent = ({
 
         <div
           className={borderClasses}
-          dangerouslySetInnerHTML={{ 
+          dangerouslySetInnerHTML={{
             __html: DOMPurify.sanitize(ad.html_content, {
-              ALLOWED_TAGS: ['b', 'i', 'em', 'strong', 'a', 'p', 'br', 'span', 'div', 'img', 'iframe'],
-              ALLOWED_ATTR: ['href', 'target', 'rel', 'src', 'alt', 'width', 'height', 'class', 'id'],
+              ALLOWED_TAGS: [
+                "b",
+                "i",
+                "em",
+                "strong",
+                "a",
+                "p",
+                "br",
+                "span",
+                "div",
+                "img",
+                "iframe",
+              ],
+              ALLOWED_ATTR: [
+                "href",
+                "target",
+                "rel",
+                "src",
+                "alt",
+                "width",
+                "height",
+                "class",
+                "id",
+              ],
               ALLOW_DATA_ATTR: false,
-            })
+            }),
           }}
         />
 

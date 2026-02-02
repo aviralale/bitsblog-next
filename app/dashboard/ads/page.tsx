@@ -1,5 +1,6 @@
-"use client";
+﻿"use client";
 
+export const dynamic = 'force-dynamic';
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -813,11 +814,11 @@ export const ManageAds = () => {
                 </h4>
                 <div className="flex items-center gap-2 text-sm text-neutral-600">
                   <span>{adToDelete.placement_display}</span>
-                  <span>•</span>
+                  <span>â€¢</span>
                   <span>
                     {formatNumber(adToDelete.impressions)} impressions
                   </span>
-                  <span>•</span>
+                  <span>â€¢</span>
                   <span>{formatNumber(adToDelete.clicks)} clicks</span>
                 </div>
               </div>
@@ -876,7 +877,7 @@ export const ManageAds = () => {
                 </h4>
                 <div className="flex items-center gap-2 text-sm text-neutral-600">
                   <span>{adToChangeStatus.placement_display}</span>
-                  <span>•</span>
+                  <span>â€¢</span>
                   <span>Current: {adToChangeStatus.status_display}</span>
                 </div>
               </div>
@@ -927,3 +928,4 @@ export const ManageAds = () => {
 };
 
 export default ManageAds;
+

@@ -41,7 +41,7 @@ async function getCategoryPosts(slug: string) {
       `${API_URL}/api/posts/?category__slug=${slug}&status=published`,
       {
         next: { revalidate: 300 },
-      }
+      },
     );
 
     if (!res.ok) {
@@ -81,7 +81,7 @@ export async function generateMetadata({
         `${category.description} Browse ${category.posts_count} article${
           category.posts_count !== 1 ? "s" : ""
         } in ${category.name} category.`,
-        155
+        155,
       )
     : `Explore ${category.posts_count} article${
         category.posts_count !== 1 ? "s" : ""
@@ -141,7 +141,8 @@ export async function generateMetadata({
 export async function generateStaticParams() {
   try {
     const res = await fetch(`${API_URL}/api/categories/`);
-    const categories = await res.json();
+    const data = await res.json();
+    const categories = Array.isArray(data) ? data : data.results || [];
 
     return categories.map((category: any) => ({
       slug: category.slug,
@@ -198,8 +199,7 @@ export default async function CategoryViewPage({
     "@type": "CollectionPage",
     name: `${category.name} Articles`,
     description:
-      category.description ||
-      `Articles and tutorials about ${category.name}`,
+      category.description || `Articles and tutorials about ${category.name}`,
     url: `${SITE_URL}/categories/${category.slug}`,
     numberOfItems: posts.length,
     about: {

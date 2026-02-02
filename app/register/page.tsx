@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -230,7 +230,7 @@ export default function Register() {
             href="/"
             className="text-sm text-neutral-500 hover:text-black font-light transition-colors inline-flex items-center gap-2"
           >
-            ← Back to home
+            â† Back to home
           </Link>
         </div>
       </div>

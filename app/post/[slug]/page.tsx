@@ -3,7 +3,8 @@ import PostViewPageClient from "./PostViewPageClient";
 import { notFound } from "next/navigation";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://blog.ctrlbits.com";
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://blog.ctrlbits.com";
 
 // Helper function to strip HTML tags
 const stripHtml = (html: string): string => {
@@ -40,11 +41,12 @@ async function getPost(slug: string) {
 
 // Generate metadata for the post
 export async function generateMetadata({
-  params,
+  params: paramsPromise,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  const post = await getPost(params.slug);
+  const { slug } = await paramsPromise;
+  const post = await getPost(slug);
 
   if (!post) {
     return {
@@ -56,15 +58,15 @@ export async function generateMetadata({
   const title = `${post.title} | BitsBlog`;
   const description = truncateText(
     post.excerpt || stripHtml(post.content),
-    155
+    155,
   );
   const url = `${SITE_URL}/post/${post.slug}`;
   const imageUrl = post.featured_image || `${SITE_URL}/og-default.jpg`;
   const publishedTime = new Date(
-    post.published_at || post.created_at
+    post.published_at || post.created_at,
   ).toISOString();
   const modifiedTime = new Date(
-    post.updated_at || post.published_at || post.created_at
+    post.updated_at || post.published_at || post.created_at,
   ).toISOString();
 
   const keywords = [
@@ -81,9 +83,10 @@ export async function generateMetadata({
     keywords,
     authors: [
       {
-        name: post.author.first_name && post.author.last_name
-          ? `${post.author.first_name} ${post.author.last_name}`
-          : post.author.username,
+        name:
+          post.author.first_name && post.author.last_name
+            ? `${post.author.first_name} ${post.author.last_name}`
+            : post.author.username,
         url: `${SITE_URL}/profile/${post.author.username}`,
       },
     ],
@@ -141,7 +144,9 @@ export async function generateMetadata({
 // Generate static params for popular posts (optional, for static generation)
 export async function generateStaticParams() {
   try {
-    const res = await fetch(`${API_URL}/api/posts/?status=published&page_size=50`);
+    const res = await fetch(
+      `${API_URL}/api/posts/?status=published&page_size=50`,
+    );
     const data = await res.json();
     const posts = data.results || [];
 
@@ -155,11 +160,12 @@ export async function generateStaticParams() {
 }
 
 export default async function PostViewPage({
-  params,
+  params: paramsPromise,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const post = await getPost(params.slug);
+  const { slug } = await paramsPromise;
+  const post = await getPost(slug);
 
   if (!post) {
     notFound();
@@ -172,11 +178,9 @@ export default async function PostViewPage({
     headline: post.title,
     description: truncateText(post.excerpt || stripHtml(post.content), 155),
     image: post.featured_image || `${SITE_URL}/og-default.jpg`,
-    datePublished: new Date(
-      post.published_at || post.created_at
-    ).toISOString(),
+    datePublished: new Date(post.published_at || post.created_at).toISOString(),
     dateModified: new Date(
-      post.updated_at || post.published_at || post.created_at
+      post.updated_at || post.published_at || post.created_at,
     ).toISOString(),
     author: {
       "@type": "Person",
@@ -270,7 +274,7 @@ export default async function PostViewPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-      
+
       {/* Render the client component with the post data */}
       <PostViewPageClient initialPost={post} />
     </>

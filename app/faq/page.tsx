@@ -1,4 +1,5 @@
-"use client";
+﻿"use client";
+
 import { useState } from "react";
 import {
   Search,
@@ -224,7 +225,6 @@ const faqData: FAQItem[] = [
     answer:
       "If you believe content on our site infringes your copyright, please contact us immediately through our contact page with details of the infringement. We take copyright seriously and will investigate all claims promptly.",
   },
-
 ];
 
 const categories = [
@@ -276,7 +276,7 @@ export const FAQ = () => {
    */
   const toggleItem = (id: number) => {
     setExpandedItems((prev) =>
-      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
+      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id],
     );
   };
 
@@ -298,14 +298,14 @@ export const FAQ = () => {
   const pageTitle = searchQuery
     ? `Search: "${searchQuery}" in FAQ | BitsBlog`
     : selectedCategory !== "All"
-    ? `${selectedCategory} FAQs | BitsBlog`
-    : "Frequently Asked Questions | BitsBlog";
+      ? `${selectedCategory} FAQs | BitsBlog`
+      : "Frequently Asked Questions | BitsBlog";
 
   const pageDescription = searchQuery
     ? `Search results for "${searchQuery}" in our FAQ. Found ${filteredFAQs.length} matching questions.`
     : selectedCategory !== "All"
-    ? `Frequently asked questions about ${selectedCategory.toLowerCase()}. Find answers to common questions about our blog, accounts, newsletters, and more.`
-    : "Find answers to frequently asked questions about BitsBlog. Learn about accounts, newsletters, comments, privacy, technical issues, and content guidelines.";
+      ? `Frequently asked questions about ${selectedCategory.toLowerCase()}. Find answers to common questions about our blog, accounts, newsletters, and more.`
+      : "Find answers to frequently asked questions about BitsBlog. Learn about accounts, newsletters, comments, privacy, technical issues, and content guidelines.";
 
   const pageUrl = getAbsoluteUrl("/faq");
   const ogImage = getAbsoluteUrl("/og-faq.jpg");

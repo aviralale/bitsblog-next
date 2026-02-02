@@ -78,9 +78,16 @@ export const categoryAPI = {
 
 // Tag Services
 export const tagAPI = {
-  getAll: () => api.get<Tag[]>("/api/tags/"),
+  getAll: () => api.get<any>("/api/tags/"),
   getBySlug: (slug: string) => api.get<Tag>(`/api/tags/${slug}/`),
   create: (data: { name: string }) => api.post<Tag>("/api/tags/", data),
+  search: (query: string) =>
+    api.get<any>("/api/tags/", {
+      params: {
+        search: query,
+        limit: 100, // Get more results per page for search
+      },
+    }),
 };
 
 // Comment Services
@@ -179,7 +186,7 @@ export const newsletterAPI = {
   // Admin only - Get recent subscribers
   getRecentSubscribers: (limit: number = 10) =>
     api.get(
-      `/api/newsletter/subscribers/?ordering=-subscribed_at&limit=${limit}`
+      `/api/newsletter/subscribers/?ordering=-subscribed_at&limit=${limit}`,
     ),
 
   // Admin only - Get newsletter overview
