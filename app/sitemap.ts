@@ -26,7 +26,7 @@ function asArray<T = any>(data: any): T[] {
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticPages: MetadataRoute.Sitemap = [
     {
-      url: `${SITE_URL}/`,
+      url: SITE_URL,
       lastModified: STATIC_LASTMOD,
       changeFrequency: "daily" as CF,
       priority: 1.0,
@@ -36,6 +36,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: STATIC_LASTMOD,
       changeFrequency: "weekly" as CF,
       priority: 1.0,
+    },
+    {
+      url: `${SITE_URL}/about`,
+      lastModified: STATIC_LASTMOD,
+      changeFrequency: "monthly" as CF,
+      priority: 0.8,
     },
     {
       url: `${SITE_URL}/articles`,
@@ -53,18 +59,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${SITE_URL}/tags`,
       lastModified: STATIC_LASTMOD,
       changeFrequency: "weekly" as CF,
-      priority: 0.8,
-    },
-    {
-      url: `${SITE_URL}/archives`,
-      lastModified: STATIC_LASTMOD,
-      changeFrequency: "weekly" as CF,
-      priority: 0.7,
-    },
-    {
-      url: `${SITE_URL}/about`,
-      lastModified: STATIC_LASTMOD,
-      changeFrequency: "monthly" as CF,
       priority: 0.8,
     },
     {
@@ -91,9 +85,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "yearly" as CF,
       priority: 0.5,
     },
-
-    // Usually exclude /search from sitemap (often thin / param-based)
-    // { url: `${SITE_URL}/search`, lastModified: STATIC_LASTMOD, changeFrequency: "monthly" as CF, priority: 0.3 },
   ];
 
   if (!API_URL) return staticPages;
