@@ -7,10 +7,6 @@ const SITE_URL = (
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
-      /**
-       * Default rule for all crawlers
-       * Search engines + unknown bots
-       */
       {
         userAgent: "*",
         allow: "/",
@@ -28,11 +24,6 @@ export default function robots(): MetadataRoute.Robots {
           "/wp-admin/",
         ],
       },
-
-      /**
-       * AI / Answer Engine Crawlers
-       * Explicitly allow public editorial content
-       */
       {
         userAgent: [
           "GPTBot",
@@ -44,6 +35,8 @@ export default function robots(): MetadataRoute.Robots {
         ],
         allow: [
           "/",
+          "/articles",
+          "/articles/",
           "/post/",
           "/categories/",
           "/tags/",
@@ -53,10 +46,6 @@ export default function robots(): MetadataRoute.Robots {
         ],
         disallow: ["/cgi-bin/", "/api/", "/dashboard/", "/login", "/register"],
       },
-
-      /**
-       * SEO intelligence crawlers (rate-limited)
-       */
       {
         userAgent: ["AhrefsBot", "SemrushBot", "MJ12bot"],
         allow: "/",

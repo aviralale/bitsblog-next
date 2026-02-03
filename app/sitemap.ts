@@ -5,7 +5,7 @@ const SITE_URL = (
   process.env.NEXT_PUBLIC_SITE_URL || "https://blog.ctrlbits.com"
 ).replace(/\/$/, "");
 
-// Use a stable date for static pages (prevents “everything changed” signals)
+// Stable lastmod for static pages (update when you change these pages significantly)
 const STATIC_LASTMOD = new Date("2026-01-30");
 
 type CF =
@@ -42,7 +42,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: STATIC_LASTMOD,
       changeFrequency: "daily" as CF,
       priority: 0.9,
-    }, // <-- your real posts index
+    },
     {
       url: `${SITE_URL}/categories`,
       lastModified: STATIC_LASTMOD,
@@ -92,7 +92,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.5,
     },
 
-    // Usually exclude /search from sitemap (often thin/param-based)
+    // Usually exclude /search from sitemap (often thin / param-based)
     // { url: `${SITE_URL}/search`, lastModified: STATIC_LASTMOD, changeFrequency: "monthly" as CF, priority: 0.3 },
   ];
 
