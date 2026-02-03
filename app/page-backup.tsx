@@ -179,7 +179,7 @@ const Home = () => {
         {/* Basic meta Tags */}
         <meta name="description" content={pageDescription} />
         <meta name="keywords" content={keywords} />
-        <meta name="robots" content="index, follow" />
+        <meta name="robots" content="noindex, nofollow" />
         <meta name="author" content="Ctrl Bits" />
 
         {/* Canonical Link */}
