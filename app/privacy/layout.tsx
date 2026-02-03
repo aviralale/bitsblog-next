@@ -1,29 +1,29 @@
 import { Metadata } from "next";
 
-export const dynamic = "force-dynamic";
-
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL || "https://blog.ctrlbits.com";
 
 export const metadata: Metadata = {
-  title: "Contact Us - Get in Touch | BitsBlog Nepal",
+  title: "Privacy Policy - Data Protection & User Privacy | BitsBlog Nepal",
   description:
-    "Contact BitsBlog for inquiries, collaborations, advertising opportunities, or feedback. We'd love to hear from you. Reach out to Nepal's leading tech blog.",
+    "Read BitsBlog Nepal's privacy policy. Learn how we collect, use, protect your personal data, and safeguard user privacy. Transparent data practices. GDPR compliant.",
   keywords: [
-    "contact bitsblog",
-    "tech blog contact",
-    "advertise on bitsblog",
-    "guest post bitsblog",
-    "nepal tech blog contact",
+    "privacy policy",
+    "data protection Nepal",
+    "user privacy",
+    "personal information",
+    "GDPR compliance",
+    "data security",
+    "privacy rights",
   ],
   alternates: {
-    canonical: `${SITE_URL}/contact`,
+    canonical: `${SITE_URL}/privacy`,
   },
   openGraph: {
-    title: "Contact Us | BitsBlog Nepal",
+    title: "Privacy Policy | BitsBlog Nepal",
     description:
-      "Get in touch with BitsBlog for inquiries, collaborations, or feedback.",
-    url: `${SITE_URL}/contact`,
+      "Learn how we collect, use, and protect your personal data. Transparent privacy practices.",
+    url: `${SITE_URL}/privacy`,
     siteName: "BitsBlog",
     locale: "en_US",
     type: "website",
@@ -32,14 +32,14 @@ export const metadata: Metadata = {
         url: `${SITE_URL}/og-default.jpg`,
         width: 1200,
         height: 630,
-        alt: "Contact BitsBlog",
+        alt: "BitsBlog Privacy Policy",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Contact Us | BitsBlog Nepal",
-    description: "Get in touch with BitsBlog for inquiries or collaborations.",
+    title: "Privacy Policy | BitsBlog Nepal",
+    description: "Learn how we protect your personal data and user privacy.",
     site: "@ctrl_bits",
     creator: "@ctrl_bits",
     images: [`${SITE_URL}/og-default.jpg`],
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ContactLayout({
+export default function PrivacyLayout({
   children,
 }: {
   children: React.ReactNode;
