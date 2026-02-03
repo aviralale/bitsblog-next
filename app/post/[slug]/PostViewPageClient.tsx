@@ -492,7 +492,7 @@ export default function PostViewPageClient({
                 <div className="flex flex-wrap gap-2 mb-4 sm:mb-6">
                   {post.category && (
                     <Link
-                      href={`/category/${post.category.slug}`}
+                      href={`/categories/${post.category.slug}`}
                       className="text-xs font-medium text-black uppercase tracking-wider border border-neutral-300 px-2 sm:px-3 py-1 hover:bg-black hover:text-white transition-colors"
                     >
                       {post.category.name}

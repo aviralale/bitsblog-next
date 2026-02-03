@@ -870,7 +870,7 @@ export default function ArticlesPageContent() {
                             <div className="flex items-center gap-2 mb-3 flex-wrap">
                               {post.category && (
                                 <Link
-                                  href={`/category/${post.category.slug}`}
+                                  href={`/categories/${post.category.slug}`}
                                   className="text-xs text-neutral-500 hover:text-black font-light"
                                   onClick={(e) => e.stopPropagation()}
                                 >

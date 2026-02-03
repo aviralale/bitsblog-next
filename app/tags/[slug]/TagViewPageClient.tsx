@@ -111,7 +111,7 @@ export default function TagViewPageClient({
 
     const keywords = `${tag.name}, ${tag.name} articles, ${tag.name} tutorials, ${tag.name} guides, tech blog, programming, web development`;
 
-    const canonicalUrl = getAbsoluteUrl(`/tag/${slug}`);
+    const canonicalUrl = getAbsoluteUrl(`/tags/${slug}`);
     const ogImage = getAbsoluteUrl("/og-tags.jpg");
 
     return {

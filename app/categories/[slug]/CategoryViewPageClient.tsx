@@ -138,7 +138,7 @@ export default function CategoryViewPageClient({
 
     const keywords = `${category.name}, ${category.name} articles, ${category.name} tutorials, ${category.name} guides, tech blog, programming, web development`;
 
-    const canonicalUrl = getAbsoluteUrl(`/category/${slug}`);
+    const canonicalUrl = getAbsoluteUrl(`/categories/${slug}`);
     const ogImage = getAbsoluteUrl("/og-categories.jpg");
 
     return {

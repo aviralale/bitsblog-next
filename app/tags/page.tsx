@@ -151,11 +151,11 @@ const TagsPage = () => {
             position: index + 1,
             item: {
               "@type": "Thing",
-              "@id": getAbsoluteUrl(`/tag/${tag.slug}`),
+              "@id": getAbsoluteUrl(`/tags/${tag.slug}`),
               name: tag.name,
               description:
                 tag.description || `Articles tagged with ${tag.name}`,
-              url: getAbsoluteUrl(`/tag/${tag.slug}`),
+              url: getAbsoluteUrl(`/tags/${tag.slug}`),
             },
           })),
         }
@@ -365,7 +365,7 @@ const TagsPage = () => {
                   {filteredTags.map((tag) => (
                     <Link
                       key={tag.id}
-                      href={`/tag/${tag.slug}`}
+                      href={`/tags/${tag.slug}`}
                       className="group"
                     >
                       <div className="border border-neutral-200 hover:border-black transition-all h-full">
@@ -411,7 +411,7 @@ const TagsPage = () => {
                   {filteredTags.map((tag) => (
                     <Link
                       key={tag.id}
-                      href={`/tag/${tag.slug}`}
+                      href={`/tags/${tag.slug}`}
                       className="group block"
                     >
                       <div className="border border-neutral-200 hover:border-black transition-all">

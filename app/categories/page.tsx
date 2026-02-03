@@ -165,11 +165,11 @@ const CategoriesPage = () => {
             position: index + 1,
             item: {
               "@type": "Thing",
-              "@id": getAbsoluteUrl(`/category/${category.slug}`),
+              "@id": getAbsoluteUrl(`/categories/${category.slug}`),
               name: category.name,
               description:
                 category.description || `Articles about ${category.name}`,
-              url: getAbsoluteUrl(`/category/${category.slug}`),
+              url: getAbsoluteUrl(`/categories/${category.slug}`),
             },
           })),
         }
@@ -381,7 +381,7 @@ const CategoriesPage = () => {
                   {filteredCategories.map((category) => (
                     <Link
                       key={category.id}
-                      href={`/category/${category.slug}`}
+                      href={`/categories/${category.slug}`}
                       className="group"
                     >
                       <div className="border border-neutral-200 hover:border-black transition-all h-full">
@@ -427,7 +427,7 @@ const CategoriesPage = () => {
                   {filteredCategories.map((category) => (
                     <Link
                       key={category.id}
-                      href={`/category/${category.slug}`}
+                      href={`/categories/${category.slug}`}
                       className="group block"
                     >
                       <div className="border border-neutral-200 hover:border-black transition-all">
