@@ -1,29 +1,27 @@
 import { Metadata } from "next";
 
-export const dynamic = "force-dynamic";
-
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL || "https://blog.ctrlbits.com";
 
 export const metadata: Metadata = {
-  title: "Contact Us - Get in Touch | BitsBlog Nepal",
+  title: "Blog Archives - Browse Articles by Date | BitsBlog Nepal",
   description:
-    "Contact BitsBlog for inquiries, collaborations, advertising opportunities, or feedback. We'd love to hear from you. Reach out to Nepal's leading tech blog.",
+    "Browse BitsBlog archives organized by year and month. Explore our historical tech articles, programming tutorials, and technology insights chronologically.",
   keywords: [
-    "contact bitsblog",
-    "tech blog contact",
-    "advertise on bitsblog",
-    "guest post bitsblog",
-    "nepal tech blog contact",
+    "blog archives",
+    "tech articles archive",
+    "programming tutorials history",
+    "technology blog archive",
+    "Nepal tech blog",
   ],
   alternates: {
-    canonical: `${SITE_URL}/contact`,
+    canonical: `${SITE_URL}/archives`,
   },
   openGraph: {
-    title: "Contact Us | BitsBlog Nepal",
+    title: "Blog Archives - Browse Articles by Date | BitsBlog Nepal",
     description:
-      "Get in touch with BitsBlog for inquiries, collaborations, or feedback.",
-    url: `${SITE_URL}/contact`,
+      "Browse BitsBlog archives organized by year and month. Explore historical tech articles and programming tutorials.",
+    url: `${SITE_URL}/archives`,
     siteName: "BitsBlog",
     locale: "en_US",
     type: "website",
@@ -32,14 +30,14 @@ export const metadata: Metadata = {
         url: `${SITE_URL}/og-default.jpg`,
         width: 1200,
         height: 630,
-        alt: "Contact BitsBlog",
+        alt: "BitsBlog Archives",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Contact Us | BitsBlog Nepal",
-    description: "Get in touch with BitsBlog for inquiries or collaborations.",
+    title: "Blog Archives | BitsBlog Nepal",
+    description: "Browse articles organized by date.",
     site: "@ctrl_bits",
     creator: "@ctrl_bits",
     images: [`${SITE_URL}/og-default.jpg`],
@@ -57,7 +55,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ContactLayout({
+export default function ArchivesLayout({
   children,
 }: {
   children: React.ReactNode;

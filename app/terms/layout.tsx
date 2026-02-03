@@ -1,29 +1,28 @@
 import { Metadata } from "next";
 
-export const dynamic = "force-dynamic";
-
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL || "https://blog.ctrlbits.com";
 
 export const metadata: Metadata = {
-  title: "Contact Us - Get in Touch | BitsBlog Nepal",
+  title: "Terms of Service - Usage Policy & Guidelines | BitsBlog Nepal",
   description:
-    "Contact BitsBlog for inquiries, collaborations, advertising opportunities, or feedback. We'd love to hear from you. Reach out to Nepal's leading tech blog.",
+    "Read BitsBlog Nepal's terms of service and usage policy. Understand your rights, responsibilities, content guidelines, and acceptable use when using our platform.",
   keywords: [
-    "contact bitsblog",
-    "tech blog contact",
-    "advertise on bitsblog",
-    "guest post bitsblog",
-    "nepal tech blog contact",
+    "terms of service",
+    "usage policy",
+    "user agreement",
+    "content guidelines",
+    "acceptable use",
+    "terms and conditions",
   ],
   alternates: {
-    canonical: `${SITE_URL}/contact`,
+    canonical: `${SITE_URL}/terms`,
   },
   openGraph: {
-    title: "Contact Us | BitsBlog Nepal",
+    title: "Terms of Service | BitsBlog Nepal",
     description:
-      "Get in touch with BitsBlog for inquiries, collaborations, or feedback.",
-    url: `${SITE_URL}/contact`,
+      "Read our terms of service. Understand your rights, responsibilities, and content guidelines.",
+    url: `${SITE_URL}/terms`,
     siteName: "BitsBlog",
     locale: "en_US",
     type: "website",
@@ -32,14 +31,14 @@ export const metadata: Metadata = {
         url: `${SITE_URL}/og-default.jpg`,
         width: 1200,
         height: 630,
-        alt: "Contact BitsBlog",
+        alt: "BitsBlog Terms of Service",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Contact Us | BitsBlog Nepal",
-    description: "Get in touch with BitsBlog for inquiries or collaborations.",
+    title: "Terms of Service | BitsBlog Nepal",
+    description: "Read our terms of service and usage policy.",
     site: "@ctrl_bits",
     creator: "@ctrl_bits",
     images: [`${SITE_URL}/og-default.jpg`],
@@ -57,7 +56,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ContactLayout({
+export default function TermsLayout({
   children,
 }: {
   children: React.ReactNode;

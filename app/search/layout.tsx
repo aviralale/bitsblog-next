@@ -1,20 +1,19 @@
 import { Metadata } from "next";
 
-export const dynamic = "force-dynamic";
-
 export const metadata: Metadata = {
-  title: "Dashboard | BitsBlog",
+  title: "Search | BitsBlog",
+  description: "Search articles, posts, and content on BitsBlog",
   robots: {
     index: false,
-    follow: false,
+    follow: true,
     googleBot: {
       index: false,
-      follow: false,
+      follow: true,
     },
   },
 };
 
-export default function DashboardLayout({
+export default function SearchLayout({
   children,
 }: {
   children: React.ReactNode;
