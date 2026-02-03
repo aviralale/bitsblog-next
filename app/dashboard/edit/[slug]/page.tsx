@@ -720,7 +720,7 @@ export default function EditPostPage() {
                         Category
                       </Label>
                       <Select
-                        value={formData.category_id}
+                        value={formData.category_id || ""}
                         onValueChange={(value) =>
                           setFormData({ ...formData, category_id: value })
                         }

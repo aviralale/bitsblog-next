@@ -30,9 +30,27 @@ export default function SearchableTagsInput({
 
   // Initialize selected tags with their full objects
   useEffect(() => {
-    // This will be updated when tags are loaded from the backend
-    // For now, we'll work with just the IDs and fetch full data when needed
-  }, []);
+    // When selectedTags change (e.g., when loading a post), fetch the full tag objects
+    if (selectedTags.length > 0) {
+      // Load all available tags to find the matching ones
+      const loadSelectedTags = async () => {
+        try {
+          const results = await onSearch("");
+          // Filter results to only include selected tags and maintain order
+          const tagsMap = new Map(results.map((tag) => [tag.id, tag]));
+          const selected = selectedTags
+            .map((id) => tagsMap.get(id))
+            .filter((tag): tag is Tag => tag !== undefined);
+          setSelectedTagObjects(selected);
+        } catch (error) {
+          console.error("Failed to load selected tags:", error);
+        }
+      };
+      loadSelectedTags();
+    } else {
+      setSelectedTagObjects([]);
+    }
+  }, [selectedTags, onSearch]);
 
   // Debounced search function
   const handleSearch = useCallback(

@@ -477,7 +477,7 @@ export default function PostViewPageClient({
                   style={{ aspectRatio: "2400 / 1260" }}
                 >
                   <Image
-                    src={post.featured_image}
+                    src={getAbsoluteUrl(post.featured_image)}
                     alt={post.title}
                     fill
                     className="object-cover"
