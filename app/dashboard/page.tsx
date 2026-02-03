@@ -56,6 +56,7 @@ import {
   PhoneCall,
   AlertCircle,
   User,
+  Folder,
 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import {
@@ -275,6 +276,14 @@ function DashboardContent() {
       router.push("/");
     }
   }, [user, router]);
+
+  // Sync active tab with URL params for persistence
+  useEffect(() => {
+    const tabParam = searchParams.get("tab");
+    if (tabParam) {
+      setActiveTab(tabParam);
+    }
+  }, [searchParams]);
 
   useEffect(() => {
     if (user?.is_staff) {
@@ -951,6 +960,20 @@ function DashboardContent() {
               >
                 <PhoneCall className="h-4 w-4 mr-2" />
                 Contact Messages
+              </TabsTrigger>
+              <TabsTrigger
+                value="categories"
+                className="rounded-none px-6 py-2 text-sm font-light data-[state=active]:bg-black data-[state=active]:text-white"
+              >
+                <Folder className="h-4 w-4 mr-2" />
+                Categories
+              </TabsTrigger>
+              <TabsTrigger
+                value="tags"
+                className="rounded-none px-6 py-2 text-sm font-light data-[state=active]:bg-black data-[state=active]:text-white"
+              >
+                <FileText className="h-4 w-4 mr-2" />
+                Tags
               </TabsTrigger>
             </TabsList>
 
@@ -2054,6 +2077,86 @@ function DashboardContent() {
 
               {/* Quick Actions */}
               <QuickActions />
+            </TabsContent>
+
+            {/* Categories Tab */}
+            <TabsContent value="categories" className="space-y-8">
+              <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center gap-3">
+                  <div className="w-1 h-6 bg-black"></div>
+                  <h2 className="text-2xl font-light text-black">
+                    Manage Categories
+                  </h2>
+                </div>
+                <Button
+                  variant="outline"
+                  onClick={() => router.push("/dashboard/categories")}
+                  className="border-neutral-300 text-neutral-600 hover:border-black hover:text-black font-light rounded-none h-10"
+                >
+                  <PlusCircle className="h-4 w-4 mr-2" />
+                  Manage
+                </Button>
+              </div>
+              <Card className="border-neutral-200 rounded-none shadow-none">
+                <CardContent className="pt-6">
+                  <div className="flex flex-col items-center justify-center py-12">
+                    <Folder className="h-16 w-16 text-neutral-300 mb-6" />
+                    <h3 className="text-xl font-light text-black mb-3">
+                      Manage your categories
+                    </h3>
+                    <p className="text-neutral-600 font-light mb-8 text-center">
+                      View, create, and edit categories for your posts
+                    </p>
+                    <Button
+                      onClick={() => router.push("/dashboard/categories")}
+                      className="bg-black text-white hover:bg-neutral-800 font-light rounded-none h-12 px-8"
+                    >
+                      <Folder className="h-4 w-4 mr-2" />
+                      Open Categories
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+
+            {/* Tags Tab */}
+            <TabsContent value="tags" className="space-y-8">
+              <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center gap-3">
+                  <div className="w-1 h-6 bg-black"></div>
+                  <h2 className="text-2xl font-light text-black">
+                    Manage Tags
+                  </h2>
+                </div>
+                <Button
+                  variant="outline"
+                  onClick={() => router.push("/dashboard/tags")}
+                  className="border-neutral-300 text-neutral-600 hover:border-black hover:text-black font-light rounded-none h-10"
+                >
+                  <PlusCircle className="h-4 w-4 mr-2" />
+                  Manage
+                </Button>
+              </div>
+              <Card className="border-neutral-200 rounded-none shadow-none">
+                <CardContent className="pt-6">
+                  <div className="flex flex-col items-center justify-center py-12">
+                    <FileText className="h-16 w-16 text-neutral-300 mb-6" />
+                    <h3 className="text-xl font-light text-black mb-3">
+                      Manage your tags
+                    </h3>
+                    <p className="text-neutral-600 font-light mb-8 text-center">
+                      View, create, and edit tags for organizing your content
+                    </p>
+                    <Button
+                      onClick={() => router.push("/dashboard/tags")}
+                      className="bg-black text-white hover:bg-neutral-800 font-light rounded-none h-12 px-8"
+                    >
+                      <FileText className="h-4 w-4 mr-2" />
+                      Open Tags
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
             </TabsContent>
           </Tabs>
         </div>
