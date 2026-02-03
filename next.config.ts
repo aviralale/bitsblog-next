@@ -5,8 +5,8 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "api-blog.ctrlbits.com",
-        pathname: "/media/**",
+        hostname: "cdn.ctrlbits.com",
+        pathname: "/**",
       },
     ],
     formats: ["image/avif", "image/webp"],
