@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "./ui/button";
 import {
@@ -107,12 +108,13 @@ export const ResponsiveNavbar = () => {
               className="flex items-center gap-2 md:gap-3 group shrink-0"
               aria-label="BitsBlog home"
             >
-              <img
+              <Image
                 src="/favicon.png"
                 className="h-8 w-8 transition-opacity group-hover:opacity-70"
                 alt="BitsBlog logo"
-                width="32"
-                height="32"
+                width={32}
+                height={32}
+                priority
               />
               <div className="hidden lg:flex flex-col">
                 <span className="text-sm font-semibold text-black leading-tight">
@@ -222,12 +224,13 @@ export const ResponsiveNavbar = () => {
               aria-label="BitsBlog home"
               onClick={handleLinkClick}
             >
-              <img
+              <Image
                 src="/favicon.png"
                 className="h-7 w-7 transition-opacity group-hover:opacity-70"
                 alt="BitsBlog logo"
-                width="32"
-                height="32"
+                width={32}
+                height={32}
+                priority
               />
               <div className="flex flex-col">
                 <span className="text-xs font-semibold text-black leading-tight">
