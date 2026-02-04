@@ -3,6 +3,7 @@
 import { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { postAPI } from "@/api/services";
 import { type Post } from "@/types";
 import { Button } from "@/components/ui/button";
@@ -48,7 +49,6 @@ import {
   Activity,
   DollarSign,
   MousePointerClick,
-  Image,
   PlayCircle,
   Code,
   CheckCircle,
@@ -57,6 +57,7 @@ import {
   AlertCircle,
   User,
   Folder,
+  ImageIcon,
 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import {
@@ -735,13 +736,13 @@ function DashboardContent() {
   const getAdTypeIcon = (adType: string) => {
     switch (adType) {
       case "image":
-        return <Image className="h-4 w-4" />;
+        return <ImageIcon className="h-4 w-4" />;
       case "video":
         return <PlayCircle className="h-4 w-4" />;
       case "html":
         return <Code className="h-4 w-4" />;
       default:
-        return <Image className="h-4 w-4" />;
+        return <ImageIcon className="h-4 w-4" />;
     }
   };
 
