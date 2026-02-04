@@ -1,4 +1,5 @@
 import { Github, Twitter, Linkedin, Mail, Heart } from "lucide-react";
+import Image from "next/image";
 import { NewsletterForm } from "./news-letter-form";
 import Link from "next/link";
 
@@ -39,12 +40,13 @@ export const Footer = () => {
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-2">
             <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
-              <img
+              <Image
                 src="/favicon.png"
                 className="h-8 w-8"
                 alt="BitsBlog logo"
-                width="32"
-                height="32"
+                width={32}
+                height={32}
+                priority
               />
               <div className="flex flex-col">
                 <span className="text-sm font-semibold text-black leading-tight">

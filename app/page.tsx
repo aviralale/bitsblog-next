@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 import { postAPI } from "@/api/services";
 import { type Post } from "@/types";
@@ -382,10 +383,12 @@ const Home = () => {
               >
                 {posts[0].featured_image && (
                   <div className="overflow-hidden bg-neutral-100 aspect-4/3 order-2 md:order-1">
-                    <img
+                    <Image
                       src={posts[0].featured_image}
-                      alt={posts[0].title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      alt={posts[0].title || 'Featured blog post image'}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                      sizes="(max-width: 768px) 100vw, 50vw"
                     />
                   </div>
                 )}
@@ -440,11 +443,13 @@ const Home = () => {
                 <div className="py-6 sm:py-8 md:py-10 flex flex-col md:flex-row gap-4 sm:gap-6 md:gap-8 items-start">
                   {/* Image */}
                   {post.featured_image && (
-                    <div className="w-full sm:w-48 h-40 sm:h-48 shrink-0 overflow-hidden bg-neutral-100 rounded-sm md:rounded-none">
-                      <img
+                    <div className="w-full sm:w-48 h-40 sm:h-48 shrink-0 overflow-hidden bg-neutral-100 rounded-sm md:rounded-none relative">
+                      <Image
                         src={post.featured_image}
-                        alt={post.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        alt={post.title || 'Blog post featured image'}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        sizes="(max-width: 768px) 100vw, 200px"
                       />
                     </div>
                   )}
