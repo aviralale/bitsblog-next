@@ -31,12 +31,13 @@ export const Navbar = () => {
             className="flex items-center gap-3 group"
             aria-label="BitsBlog home"
           >
-            <img
+            <Image
               src="/favicon.png"
-              className="h-8 transition-opacity group-hover:opacity-70"
+              className="h-8 w-8 transition-opacity group-hover:opacity-70"
               alt="BitsBlog logo"
-              width="32"
-              height="32"
+              width={32}
+              height={32}
+              priority
             />
             <div className="hidden md:flex flex-col">
               <span className="text-sm font-medium text-black leading-none">

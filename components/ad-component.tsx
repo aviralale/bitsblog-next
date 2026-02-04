@@ -23,7 +23,7 @@ interface AdData {
   slug: string;
   ad_type: "image" | "video" | "html";
   image?: string;
-  image_alt?: string;
+  image_alt: string; // Required for SEO/accessibility
   video_url?: string;
   video_thumbnail?: string;
   html_content?: string;
