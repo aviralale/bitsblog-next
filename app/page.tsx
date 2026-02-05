@@ -382,10 +382,10 @@ const Home = () => {
                 className="group grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center"
               >
                 {posts[0].featured_image && (
-                  <div className="overflow-hidden bg-neutral-100 aspect-4/3 order-2 md:order-1">
+                  <div className="overflow-hidden bg-neutral-100 aspect-4/3 order-2 md:order-1 h-64 sm:h-80 md:h-96 lg:h-auto">
                     <Image
                       src={posts[0].featured_image}
-                      alt={posts[0].title || 'Featured blog post image'}
+                      alt={posts[0].title || "Featured blog post image"}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-700"
                       sizes="(max-width: 768px) 100vw, 50vw"
@@ -446,7 +446,7 @@ const Home = () => {
                     <div className="w-full sm:w-48 h-40 sm:h-48 shrink-0 overflow-hidden bg-neutral-100 rounded-sm md:rounded-none relative">
                       <Image
                         src={post.featured_image}
-                        alt={post.title || 'Blog post featured image'}
+                        alt={post.title || "Blog post featured image"}
                         fill
                         className="object-cover group-hover:scale-105 transition-transform duration-500"
                         sizes="(max-width: 768px) 100vw, 200px"
