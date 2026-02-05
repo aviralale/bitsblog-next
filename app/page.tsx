@@ -382,7 +382,7 @@ const Home = () => {
                 className="group grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center"
               >
                 {posts[0].featured_image && (
-                  <div className="overflow-hidden bg-neutral-100 aspect-4/3 order-2 md:order-1 h-64 sm:h-80 md:h-96 lg:h-auto">
+                  <div className="overflow-hidden bg-neutral-100 aspect-4/3 order-2 md:order-1 h-64 sm:h-80 md:h-96 lg:h-auto relative">
                     <Image
                       src={posts[0].featured_image}
                       alt={posts[0].title || "Featured blog post image"}
