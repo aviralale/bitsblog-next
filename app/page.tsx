@@ -11,6 +11,7 @@ import { NewsletterForm } from "@/components/news-letter-form";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Head from "next/head";
+import PopularTags from "@/components/PopularTags";
 
 // Helper function to get absolute URL
 const getAbsoluteUrl = (path: string): string => {
@@ -519,6 +520,19 @@ const Home = () => {
           {/* Newsletter CTA */}
           <div className="mt-12 sm:mt-16 md:mt-20 pt-12 sm:pt-16 border-t border-neutral-200">
             <NewsletterForm variant="modal" />
+          </div>
+
+          {/* Popular Tags Section */}
+          <div className="mt-12 sm:mt-16 md:mt-20 pt-12 sm:pt-16 border-t border-neutral-200">
+            <div className="mb-8 sm:mb-12">
+              <div className="flex items-center gap-3 mb-8 sm:mb-12">
+                <div className="w-1 h-6 sm:h-8 bg-black"></div>
+                <span className="text-xs sm:text-sm font-medium text-black uppercase tracking-wider">
+                  Explore Topics
+                </span>
+              </div>
+            </div>
+            <PopularTags limit={12} columns="3" showCount={true} />
           </div>
 
           {/* Load More */}

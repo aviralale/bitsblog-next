@@ -6,9 +6,9 @@ const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL || "https://blog.ctrlbits.com";
 
 export const metadata: Metadata = {
-  title: "Frequently Asked Questions (FAQ) - Help & Support | BitsBlog Nepal",
+  title: "FAQ & Help | BitsBlog",
   description:
-    "Find answers to frequently asked questions about BitsBlog. Get help with accounts, posting, newsletters, and more. Your comprehensive FAQ guide.",
+    "Find answers to frequently asked questions about BitsBlog. Get help with accounts, newsletters, and more. Your comprehensive guide.",
   keywords: [
     "BitsBlog FAQ",
     "tech blog help",

@@ -6,9 +6,9 @@ const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL || "https://blog.ctrlbits.com";
 
 export const metadata: Metadata = {
-  title: "Browse All Tags - Technology Topics & Keywords | BitsBlog Nepal",
+  title: "Tech Tags & Topics | React, Python, AI, DevOps | BitsBlog",
   description:
-    "Browse all tags and keywords on BitsBlog. Find articles by specific topics including React, Next.js, Python, Django, AI, ML, DevOps, and more technology-related tags.",
+    "Browse technology tags and topics. Find articles on React, Next.js, Python, Django, AI, ML, DevOps, and more on BitsBlog's tech blog.",
   keywords: [
     "tech tags",
     "programming tags",

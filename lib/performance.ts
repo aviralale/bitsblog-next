@@ -134,3 +134,106 @@ export function optimizeThirdPartyEmbeds() {
 
   embedContainers.forEach((container) => embedObserver.observe(container));
 }
+
+/**
+ * PERFORMANCE MONITORING UTILITIES
+ * Tracks Web Vitals and generates optimization suggestions
+ */
+
+export interface PerformanceMetrics {
+  FCP?: number; // First Contentful Paint (ms)
+  LCP?: number; // Largest Contentful Paint (ms)
+  TBT?: number; // Total Blocking Time (ms)
+  CLS?: number; // Cumulative Layout Shift
+  SI?: number; // Speed Index (ms)
+  TTFB?: number; // Time to First Byte (ms)
+}
+
+/**
+ * Calculate performance score (0-100) based on Web Vitals
+ * Good: < 1.8s FCP, < 2.5s LCP, < 200ms TBT, < 0.1 CLS
+ */
+export function calculatePerformanceScore(metrics: PerformanceMetrics): {
+  score: number;
+  rating: "good" | "needs-improvement" | "poor";
+} {
+  let score = 0;
+  let weight = 0;
+
+  // FCP scoring (0-25 points)
+  if (metrics.FCP !== undefined) {
+    const fcp = metrics.FCP;
+    const fcpScore = fcp < 1800 ? 25 : fcp < 3000 ? 15 : 0;
+    score += fcpScore;
+    weight += 25;
+  }
+
+  // LCP scoring (0-25 points)
+  if (metrics.LCP !== undefined) {
+    const lcp = metrics.LCP;
+    const lcpScore = lcp < 2500 ? 25 : lcp < 4000 ? 15 : 0;
+    score += lcpScore;
+    weight += 25;
+  }
+
+  // TBT scoring (0-25 points)
+  if (metrics.TBT !== undefined) {
+    const tbt = metrics.TBT;
+    const tbtScore = tbt < 200 ? 25 : tbt < 600 ? 10 : 0;
+    score += tbtScore;
+    weight += 25;
+  }
+
+  // CLS scoring (0-25 points)
+  if (metrics.CLS !== undefined) {
+    const cls = metrics.CLS;
+    const clsScore = cls < 0.1 ? 25 : cls < 0.25 ? 15 : 0;
+    score += clsScore;
+    weight += 25;
+  }
+
+  const finalScore = weight > 0 ? Math.round((score / weight) * 100) : 0;
+  const rating: "good" | "needs-improvement" | "poor" =
+    finalScore >= 90 ? "good" : finalScore >= 50 ? "needs-improvement" : "poor";
+
+  return { score: finalScore, rating };
+}
+
+/**
+ * Get optimization suggestions based on metrics
+ */
+export function getOptimizationSuggestions(
+  metrics: PerformanceMetrics
+): string[] {
+  const suggestions: string[] = [];
+
+  if (metrics.FCP && metrics.FCP > 3000) {
+    suggestions.push(
+      "🔴 First Contentful Paint is slow (>3s). Defer JavaScript and CSS."
+    );
+  }
+
+  if (metrics.LCP && metrics.LCP > 4000) {
+    suggestions.push(
+      "🔴 Largest Contentful Paint is slow (>4s). Optimize images and lazy-load content."
+    );
+  }
+
+  if (metrics.TBT && metrics.TBT > 300) {
+    suggestions.push("🟡 Long main-thread tasks detected. Break up JavaScript work.");
+  }
+
+  if (metrics.CLS && metrics.CLS > 0.1) {
+    suggestions.push("🟡 Layout shifts detected. Set explicit dimensions on images/elements.");
+  }
+
+  if (metrics.TTFB && metrics.TTFB > 1000) {
+    suggestions.push("🔴 Server response time is slow (>1s). Optimize backend or upgrade hosting.");
+  }
+
+  if (!suggestions.length) {
+    suggestions.push("✅ Performance metrics are within good thresholds!");
+  }
+
+  return suggestions;
+}

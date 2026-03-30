@@ -2,6 +2,7 @@ import { Github, Twitter, Linkedin, Mail, Heart } from "lucide-react";
 import Image from "next/image";
 import { NewsletterForm } from "./news-letter-form";
 import Link from "next/link";
+import PopularTags from "./PopularTags";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -119,6 +120,11 @@ export const Footer = () => {
               ))}
             </ul>
           </div>
+        </div>
+
+        {/* Popular Tags */}
+        <div className="border-t border-neutral-200 py-8 sm:py-12 my-8 sm:my-12">
+          <PopularTags limit={8} columns="2" showCount={false} />
         </div>
 
         {/* Newsletter */}

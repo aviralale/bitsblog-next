@@ -4,9 +4,9 @@ const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL || "https://blog.ctrlbits.com";
 
 export const metadata: Metadata = {
-  title: "Blog Archives - Browse Articles by Date | BitsBlog Nepal",
+  title: "Blog Archives - Browse Articles by Date | BitsBlog",
   description:
-    "Browse BitsBlog archives organized by year and month. Explore our historical tech articles, programming tutorials, and technology insights chronologically.",
+    "Browse BitsBlog archives by year and month. Explore historical tech articles, programming tutorials, and technology insights chronologically.",
   keywords: [
     "blog archives",
     "tech articles archive",

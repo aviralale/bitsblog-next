@@ -6,9 +6,9 @@ const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL || "https://blog.ctrlbits.com";
 
 export const metadata: Metadata = {
-  title: "Browse All Tech Categories - Web Development, AI, Programming | BitsBlog Nepal",
+  title: "Tech Categories | Web Development, AI, Programming | BitsBlog",
   description:
-    "Browse technology articles by category. Explore topics including web development, AI, software architecture, programming tutorials, and more. Find the best tech content organized by category.",
+    "Browse articles by category. Explore web development, AI, software architecture, programming tutorials, and more on BitsBlog Nepal's tech blog.",
   keywords: [
     "tech categories",
     "programming topics",

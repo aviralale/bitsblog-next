@@ -44,6 +44,7 @@ import "highlight.js/styles/github-dark.css";
 import Image from "next/image";
 import { AdComponent } from "@/components/ad-component";
 import SavePostButton from "@/components/save-posts-button";
+import RelatedArticles from "@/components/RelatedArticles";
 
 interface TocItem {
   id: string;
@@ -834,6 +835,20 @@ export default function PostViewPageClient({
             </div>
           </div>
         </div>
+
+        {/* Related Articles */}
+        {post.category && (
+          <div className="border-t border-neutral-200 bg-white py-12 sm:py-16">
+            <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
+              <RelatedArticles
+                categorySlug={post.category.slug}
+                excludePostId={post.id}
+                limit={3}
+                title="Keep Reading"
+              />
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Share Dialog */}
